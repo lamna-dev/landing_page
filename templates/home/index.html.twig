@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block body %}
+	<section id="section-presentation">
+		<div class="bloc-presentation">
+			<div class="bloc-presentation-h2">
+				<h2>UNE NOUVELLE VISION DU VOYAGE</h2>
+			</div>
+			<h1>Voyagez responsable tout en économisant chez les commerçant locaux</h1>
+			<p>Avec lämna, économisez tout en voyageant les yeux fermés grâce à nos itinéraires responsables. Partez à la rencontre des monuments historiques de nos régions et des commerçants de proximité français.</p>
+			<div class="btn-lamna-full">
+				<a class="nav-link mx-2" href="#">
+					<span class="mr-3 text-white">Partons à l’aventure !</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FFF" class="bi bi-arrow-right" viewbox="0 0 16 16">
+						<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+	<section id="mobile-app-teasing">
+		<div class="block-mobile-teasing">
+			<div id="mobile-1">
+				<img class="picture" src="{{ asset('images/mobiles/vision.png') }}" alt="Vision Lämna">
+				<img class="cadre" src="{{ asset('images/mobiles/iphoneCadre.png') }}" alt="Cadre iphone">
+			</div>
+			<div id="mobile-2">
+				<img class="picture" src="{{ asset('images/mobiles/map.png') }}" alt="Map Lämna">
+				<img class="cadre" src="{{ asset('images/mobiles/iphoneCadre.png') }}" alt="Cadre iphone">
+			</div>
+			<div id="mobile-3">
+				<img class="picture" src="{{ asset('images/mobiles/travels.png') }}" alt="Travels Lämna">
+				<img class="cadre" src="{{ asset('images/mobiles/iphoneCadre.png') }}" alt="Cadre iphone">
+			</div>
+		</div>
+	</section>
+{% endblock %}

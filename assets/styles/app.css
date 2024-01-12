@@ -1,0 +1,262 @@
+@import url("clash-display.css");
+@import url("inter.css");
+
+:root{
+    --main-white-color: #FFFFFF;
+    --main-green-color:#497e5c;
+    --secondary-green-color: #21432f;
+    --main-black-color:#141414;
+    --secondary-black-color:#646464;
+    --main-skin-color: #fbe9cc;
+    --main-pink-light: #fef8;
+    --main-yellow-color: #fda727;
+}
+
+
+html,
+body {
+  *,
+  ::before,
+  ::after {
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* NAVIGATION */
+.navbar-toggler {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.navbar-toggler span {
+  margin: 0;
+  padding: 0;
+}
+
+.toggler-icon {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--main-black-color);
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.middle-bar {
+  margin-top: 0px;
+}
+
+/* When navigation is cliked */
+.navbar-toggler .top-bar {
+  margin: 0px;
+  transform: rotate(135deg);
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.navbar-toggler .bottom-bar {
+  margin-top: 0px;
+  transform: rotate(-135deg);
+}
+
+/* State when the navbar is collapsed */
+
+.navbar-toggler.collapsed .top-bar {
+  margin-top: -20px;
+  transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  margin-top: 20px;
+  transform: rotate(0deg);
+}
+
+.btn-lamna-outlined {
+  text-align: center;
+  width: 170px;
+  border: 1px solid var(--main-green-color);
+  border-radius: 5px;
+}
+
+.btn-lamna-full {
+    text-align: center;
+    width: max-content;
+    padding: 10px 20px;
+    border: 1px solid var(--main-green-color);
+    background-color: var(--main-green-color);
+    border-radius: 5px;
+  }
+
+.links-networks {
+  display: flex;
+}
+
+.navbarText-mobile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.links-networks-mobile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* PRESENTATION */
+
+#section-presentation {
+  width: 100%;
+  height: max-content;
+  padding-top: 84px;
+  padding-bottom: 288px;
+  background-image: url("../images/background/frameMap.png");
+  display: flex;
+  justify-content: center;
+}
+
+.bloc-presentation {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bloc-presentation h1 {
+    width: 75%;
+    height: max-content;
+  color: var(--secondary-green-color);
+  text-align: center;
+  font-family: "ClashDisplay-Variable";
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+.bloc-presentation-h2 {
+  width: max-content;
+  padding: 5px 20px;
+  height: 30px;
+  border-radius: 100px;
+  border: 1px solid var(--main-skin-color);
+  background: var(--main-pink-light);
+}
+
+.bloc-presentation-h2 h2 {
+  color: var(--main-yellow-color);
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.bloc-presentation p {
+    width: 75%;
+    margin-top: 16px;
+    font-family: 'Inter';
+    margin-bottom: 24px;
+    color: var(--secondary-black-color);
+    text-align: center;
+    font-family: 'Inter-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+/* MOBILES SECTIONS */
+
+#mobile-app-teasing{
+  width: 100%;
+  height: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+.block-mobile-teasing{
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translate(-20%, 50%);
+}
+
+#mobile-1 .picture{
+  width: 219px;
+  height: 480px;
+  margin-left: 22px;
+  position: absolute;
+  top:-10px;
+  left: 0px;  
+  z-index: 1;
+}
+
+#mobile-1 .cadre {
+  position: absolute;
+  top:-30px;
+  left: 0px;  
+  z-index: 1;
+ }
+
+ #mobile-2 .picture{
+  margin-left: 22px;
+  width: 219px;
+  height: 480px;
+  position: absolute;
+  top:-30px;
+  left: 210px;  
+  z-index: 2;
+}
+
+#mobile-2 .cadre {
+  position: absolute;
+  top:-50px;
+  left: 210px;  
+  z-index: 2;
+ }
+
+ #mobile-3 .picture{
+  width: 219px;
+  height: 450px;
+  margin-left: 22px;
+  position: absolute;
+  top:-10px;
+  left: 430px;  
+  z-index: 1;
+}
+
+#mobile-3 .cadre {
+  position: absolute;
+  top:-30px;
+  left: 430px;  
+  z-index: 1;
+ }
