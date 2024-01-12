@@ -5,6 +5,7 @@
     --main-white-color: #FFFFFF;
     --main-green-color:#497e5c;
     --secondary-green-color: #21432f;
+    --tertiary-green-color: #e6f0e8;
     --main-black-color:#141414;
     --secondary-black-color:#646464;
     --main-skin-color: #fbe9cc;
@@ -12,15 +13,48 @@
     --main-yellow-color: #fda727;
 }
 
+.doublephones {
+  background-color: var(--tertiary-green-color);
+  border-radius: 15px;
+}
+
+.list-number {
+  font-size: 18px;
+}
+
+.concept {
+  padding: 0.1em 0.5em;
+  background-color: var(--main-skin-color);
+  color: var(--main-yellow-color);
+  border: 1px solid var(--main-yellow-color);
+  border-radius: 50px;
+}
+
+.text-secondary-green {
+  color: var(--secondary-green-color);
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+h2 {
+  color: --var(--secondary-black-color);
+}
 
 html,
 body {
   *,
   ::before,
   ::after {
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
+}
+
+* {
+    font-family: "ClashDisplay-Variable";
 }
 
 /* NAVIGATION */
@@ -165,6 +199,7 @@ body {
   border-radius: 100px;
   border: 1px solid var(--main-skin-color);
   background: var(--main-pink-light);
+  color: var(--secondary-green-color);
 }
 
 .bloc-presentation-h2 h2 {
