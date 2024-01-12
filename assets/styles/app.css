@@ -19,6 +19,17 @@ html {
     scroll-behavior: smooth !important;
 }
 
+.font-size-choices {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .font-size-choices {
+    font-size: 16px;
+  }
+}
+
+
 .separator {
   height: 1px;
 }
@@ -68,6 +79,10 @@ html {
 
 .text-secondary-green {
   color: var(--secondary-green-color);
+}
+
+.mw-concept {
+  max-width: 1280px;
 }
         
 .mw-data {
