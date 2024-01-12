@@ -2,6 +2,8 @@
 @import url("inter.css");
 
 :root{
+    --text-green-color: #69B483;
+    --border-green-color: #3B6B4F;
     --main-white-color: #FFFFFF;
     --main-green-color:#497e5c;
     --secondary-green-color: #21432f;
@@ -11,6 +13,14 @@
     --main-skin-color: #fbe9cc;
     --main-pink-light: #fef8;
     --main-yellow-color: #fda727;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+.separator {
+  height: 1px;
 }
 
 .doublephones {
@@ -30,8 +40,46 @@
   border-radius: 50px;
 }
 
+.p-data {
+  padding: 8em 0 7em 0;
+}
+
+.header-percentage {
+  color: var(--text-green-color);
+  font-weight: 500;
+  font-size: 2em;
+
+}
+
+.card {
+  border: 1px solid var(--border-green-color);
+  border-radius: 15px;
+  padding: 1em;
+  margin: 0 1em 1em 0;
+}
+
+.bg-green-tertiary {
+  background-color: var(--tertiary-green-color);
+}
+
+.bg-green-secondary {
+  background-color : var(--secondary-green-color);
+}
+
 .text-secondary-green {
   color: var(--secondary-green-color);
+}
+        
+.mw-data {
+  max-width: 1280px;
+}
+
+.mw-interesting {
+  max-width: 800px;
+}
+
+.mw-choice {
+  max-width: 1280px;
 }
 
 .fw-medium {

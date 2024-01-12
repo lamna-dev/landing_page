@@ -37,15 +37,15 @@
 			</div>
 		</div>
 	</section>
-  <section>
+  <section class="d-flex flex-column justify-content-center align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <p class="concept">Concept</p>
       <h2 class="text-center mt-3">Notre concept en 3 étapes</h2>
       <p class="text-center">Avant de vous lancer, découvrez le fonctionnement du projet LÄMNA. Chaque étape vous rapproche du monde du voyage plus durables et local.</p>
     </div>
-    <div class="d-flex flex-md-row flex-column m-4">
+    <div class="d-flex flex-md-row flex-column m-4 mw-choice">
       <div class="doublephones d-flex justify-content-center align-items-center">
-        <img src="{{ asset('images/mobiles/doublephones.png') }}" alt="">
+        <img class="px-4 py-8" src="{{ asset('images/mobiles/doublephones.png') }}" alt="">
       </div>
       <div class="m-4">
         <ul class="text-decoration-none list-unstyled">
@@ -77,33 +77,37 @@
       </div>
     </div>
   </section>
-  <section>
-    <div>
-      <p>
-      Chiffres clés
-      </p>
-      <h2>
-      Quelques données intéressantes
-      </h2>
-      <p>
-      Urna nisl facilisis diam sollicitudin purus in. Sed quisque phasellus nulla augue non sed proin amet. Cursus mauris malesuada felis integer parturient gravida scelerisque pellentesque.
-      </p>
-    </div>
-    <div>
-      <div>
-        <h3>11 %</h3>
-        <p>des émissions de gaz à effet de serre en France sont générées par le tourisme</p>
-        <p>Source :  Les Echos</p>
+  <section class="bg-green-tertiary d-flex justify-content-center p-data">
+    <div class="d-flex flex-column justify-content-center align-items-start mw-data m-4">
+      <div class="d-flex flex-column justify-content-start align-items-start pb-3">
+        <p class="concept">
+        Chiffres clés
+        </p>
+        <div class="mw-interesting">
+          <h2 class="text-left">
+          Quelques données intéressantes
+          </h2>
+          <p class="text-left">
+          Urna nisl facilisis diam sollicitudin purus in. Sed quisque phasellus nulla augue non sed proin amet. Cursus mauris malesuada felis integer parturient gravida scelerisque pellentesque.
+        </p>
+        </div>
       </div>
-      <div>
-        <h3>77 %</h3>
-        <p>des ces émissions proviennent des transports</p>
-        <p>Source : Ademe</p>
-      </div>
-      <div>
-        <h3>2 %</h3>
-        <p>des emplois en France sont issus des petits commerces</p>
-        <p>Source : Cairn.info</p>
+      <div class="d-flex flex-column flex-md-row">
+        <div class="bg-light card">
+          <h3 class="header-percentage">11 %</h3>
+          <p>des émissions de gaz à effet de serre en France sont générées par le tourisme</p>
+          <p>Source :  Les Echos</p>
+        </div>
+        <div class="bg-light card">
+          <h3 class="header-percentage">77 %</h3>
+          <p>des ces émissions proviennent des transports</p>
+          <p>Source : Ademe</p>
+        </div>
+        <div class="bg-light card">
+          <h3 class="header-percentage">2 %</h3>
+          <p>des emplois en France sont issus des petits commerces</p>
+          <p>Source : Cairn.info</p>
+        </div>
       </div>
     </div>
   </section>
