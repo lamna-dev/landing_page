@@ -19,6 +19,13 @@ html {
     scroll-behavior: smooth !important;
 }
 
+.submit {
+  background-color: var(--main-green-color);
+  color: var(--main-white-color);
+  border-radius: 10px;
+  border: none;
+}
+
 .font-size-choices {
   font-size: 22px;
 }
@@ -86,6 +93,10 @@ html {
 }
         
 .mw-data {
+  max-width: 1280px;
+}
+
+.mw-sub {
   max-width: 1280px;
 }
 
