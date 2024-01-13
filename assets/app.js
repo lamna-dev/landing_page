@@ -22,56 +22,71 @@ navbarToggle.addEventListener("click", function () {
   }
 });
 
-const screenMobileXL = document.querySelector(".screenMobileXL");
+const screenDesktop = document.querySelector(".screenDesktop");
 const screenMobileSM = document.querySelector(".screenMobileSM");
 const screenMobileDispoXL = document.querySelector(".screenMobileDispoXL");
 const screenMobileDispoSM = document.querySelector(".screenMobileDispoSM");
+const contentCards = document.getElementById('content');  
 
 if (window.innerWidth < 900) {
-  screenMobileXL.style.display = "none";
+  screenDesktop.style.display = "none";
   screenMobileSM.style.display = "block";
   screenMobileDispoXL.style.display = "none";
   screenMobileDispoSM.style.display = "block";
+  contentCards.classList.remove('screenDesktopForSlides');
 } else {
-  screenMobileXL.style.display = "block";
+  screenDesktop.style.display = "block";
   screenMobileSM.style.display = "none";
   screenMobileDispoXL.style.display = "block";
   screenMobileDispoSM.style.display = "none";
+  contentCards.classList.add('screenDesktopForSlides');
 }
 
 window.addEventListener("resize", function () {
   let win = this;
   console.log(win.innerWidth);
   if (win.innerWidth < 900) {
-    screenMobileXL.style.display = "none";
+    screenDesktop.style.display = "none";
     screenMobileSM.style.display = "block";
     screenMobileDispoXL.style.display = "none";
     screenMobileDispoSM.style.display = "block";
+    contentCards.classList.remove('screenDesktopForSlides');
   } else {
-    screenMobileXL.style.display = "block";
+    screenDesktop.style.display = "block";
     screenMobileSM.style.display = "none";
     screenMobileDispoXL.style.display = "block";
     screenMobileDispoSM.style.display = "none";
+    contentCards.classList.add('screenDesktopForSlides');
   }
 });
-
-
 
 // sildes
-const btns = document.querySelector('.actions-slider');
-if (window.innerWidth < 900) {
-  btns.style.display = "block";
-} else {
-  btns.style.display = "none";
-}
+const button = document.getElementById('slide');
+const back = document.getElementById('slideBack');
+const container = document.getElementById('container');
+const cardWidth = 450;
+var position = 0;
 
-window.addEventListener("resize", function () {
-  let window = this;
-  console.log(window.innerWidth);
-  if (window.innerWidth < 900) {
-    btns.style.display = "block";
-  } else {
-    btns.style.display = "none";
-  }
-});
+button.addEventListener('click', () => {
+  position += cardWidth
+  console.log(position);
+  container.scrollTo({
+    left: position,
+    behavior: 'smooth',
+  });
+})
+
+back.addEventListener('click', () => {
+  position -= cardWidth
+  console.log(position);
+  container.scrollTo({
+    left: position,
+    behavior: 'smooth',
+  });
+})
+
+
+
+
+
 

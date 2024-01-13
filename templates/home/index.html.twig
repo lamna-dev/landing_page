@@ -24,7 +24,7 @@
 	<section id="mobile-app-teasing">
 		<div class="block-mobile-teasing">
 			<div>
-				<img class="picture-mobiles screenMobileXL" src="{{ asset('images/background/mobilesScreenXL.png') }}" alt="Vision Lämna sur les mobiles">
+				<img class="picture-mobiles screenDesktop" src="{{ asset('images/background/mobilesScreenXL.png') }}" alt="Vision Lämna sur les mobiles">
 			</div>
 			<div>
 				<img class="picture-mobiles screenMobileSM" src="{{ asset('images/mobiles/mobilesScreenSM.png') }}" alt="Vision Lämna sur les mobiles">
@@ -107,18 +107,21 @@
 		</div>
 	</section>
 	<section class="section-blog">
-		<div class="d-flex flex-column justify-content-center align-items-center w-75">
-			<p class="concept">Blog</p>
-			<h2 class="text-center mt-3 title-blog">L’actualité du côté de lämna</h2>
-			<p class="text-center text-section-blog">Découvrez le monde du voyage éco-responsable avec le blog lämna. Astuces, destinations durables, et trésors locaux vous attendent pour une exploration responsable et enrichissante.</p>
-			<div class="blog-section-parent" data-target="carousel">
-				<div class="article1" data-target="card">
+		<p class="concept">Blog</p>
+		<h2 class="title-blog">L’actualité du côté de lämna</h2>
+		<p class="text-section-blog">Découvrez le monde du voyage éco-responsable avec le blog lämna. Astuces, destinations durables, et trésors locaux vous attendent pour une exploration responsable et enrichissante.</p>
+		<div id="container">
+			<div id="content" class="screenDesktopForSlides">
+				<div class="article">
 					<div class="card-image"><img src="{{asset('images/articles/image_article1.png')}}" alt="Photo de l'article 1"/></div>
-					<div class="content-article1">
-						<span class="concept">Astuces voyage</span>
-						<span class="date-card-article">
-							12 Nov. 2023</span>
-						<p class="description-card-article">Diam suspendisse lectus feugiat quis donec aliquadio faucibus ut aliquet cras mus etiam.</p>
+					<div class="content-article">
+						<div class="box-label-and-date">
+							<span class="concept">Astuces voyage</span>
+							<span class="date-card-article">
+								12 Nov. 2023</span>
+						</div>
+						<div class="description-article">Diam suspendisse lectus feugiat quis donec aliquadio faucibus ut aliquet cras mus etiam.
+						</div>
 						<a class="nav-link" href="#">Lire l'article
 							<span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
@@ -128,13 +131,16 @@
 						</a>
 					</div>
 				</div>
-				<div class="article2" data-target="card">
-					<div class="card-image"><img src="{{asset('images/articles/image_article2.png')}}" alt="Photo de l'article 2"/></div>
-					<div class="content-article2">
-						<span class="concept">Astuces voyage</span>
-						<span class="date-card-article">
-							12 Nov. 2023</span>
-						<p class="description-card-article">Diam suspendisse lectus feugiat quis donec aliquadio faucibus ut aliquet cras mus etiam.</p>
+				<div class="article">
+					<div class="card-image"><img src="{{asset('images/articles/image_article2.png')}}" alt="Photo de l'article 1"/></div>
+					<div class="content-article">
+						<div class="box-label-and-date">
+							<span class="concept">Astuces voyage</span>
+							<span class="date-card-article">
+								12 Nov. 2023</span>
+						</div>
+						<div class="description-article">Diam suspendisse lectus feugiat quis donec aliquadio faucibus ut aliquet cras mus etiam.
+						</div>
 						<a class="nav-link" href="#">Lire l'article
 							<span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
@@ -144,14 +150,17 @@
 						</a>
 					</div>
 				</div>
-				<div class="article3" data-target="card">
-					<div class="card-image"><img src="{{asset('images/articles/image_article3.png')}}" alt="Photo de l'article 3"/></div>
-					<div class="content-article3">
-						<span class="concept">Astuces voyage</span>
-						<span class="date-card-article">
-							12 Nov. 2023</span>
-						<p class="description-card-article">Diam suspendisse lectus feugiat quis donec aliquadio faucibus ut aliquet cras mus etiam.</p>
-						<a class="nav-link" href="#">Lire l'article
+				<div class="article">
+					<div class="card-image"><img src="{{asset('images/articles/image_article3.png')}}" alt="Photo de l'article 1"/></div>
+					<div class="content-article">
+						<div class="box-label-and-date">
+							<span class="concept">Astuces voyage</span>
+							<span class="date-card-article">
+								12 Nov. 2023</span>
+						</div>
+						<div class="description-article">Diam suspendisse lectus feugiat quis donec aliquadio faucibus ut aliquet cras mus etiam.
+						</div>
+						<a class="nav-link mb-3" href="#">Lire l'article
 							<span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
 									<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
@@ -161,45 +170,45 @@
 					</div>
 				</div>
 			</div>
-			{# <div class="actions-slider">
-				<div class="btn-left" data-action="slideLeft">
-					<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
-				</div>
-				<div class="btn-right" data-action="slideRight">
-					<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
-				</div>
-			</div> #}
 		</div>
-	</section>
-  <section class="bg-green-tertiary d-flex justify-content-center">
-    <div class="mw-sub d-flex flex flex-md-row flex-column mt-5">
-      <div class="d-flex flex-column justify-content-center align-items-start mw-data m-4">
-        <div class="d-flex flex-column justify-content-start align-items-start pb-3">
-          <p class="concept mb-4">
-          Newsletter
-          </p>
-          <h2>
-           Inscrivez-vous pour découvrir nos premiers itinéraires et bénéficier d’offres spéciales !
-          </h2>
-          <p>
-          L’aventure LÄMNA ne fait que commencer et il ne faudrait pas louper la suite !
-          Rejoignez notre newsletters pour suivre l’aventure, des nouvelles vous seront données très rapidement.
-          </p>
+		<div class="actions-slider screenMobileSM">
+			<div class="btn-left" id="slideBack">
+				<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
+			</div>
+			<div class="btn-right" id="slide">
+				<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="bg-green-tertiary d-flex justify-content-center">
+	<div class="mw-sub d-flex flex flex-md-row flex-column mt-5">
+		<div class="d-flex flex-column justify-content-center align-items-start mw-data m-4">
+			<div class="d-flex flex-column justify-content-start align-items-start pb-3">
+				<p class="concept mb-4">
+					Newsletter
+				</p>
+				<h2>
+					Inscrivez-vous pour découvrir nos premiers itinéraires et bénéficier d’offres spéciales !
+				</h2>
+				<p>
+					L’aventure LÄMNA ne fait que commencer et il ne faudrait pas louper la suite !
+																																																																	          Rejoignez notre newsletters pour suivre l’aventure, des nouvelles vous seront données très rapidement.
+				</p>
 
-          <form class="row gx-3 gy-2 align-items-center mt-md-4 mt-0">
-            <div class="col-lg-10 col-8">
-              <label class="visually-hidden" for="specificSizeInputName">Email</label>
-              <input type="email" class="form-control" placeholder="Adresse email">
-            </div>
-            <div class="col-auto">
-              <button type="submit" class="btn bg-green-secondary text-light">S'inscrire</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="d-flex flex-row justify-content-center">
-         <img src="{{ asset('images/background/guy.png') }}" alt="">
-      </div>
-    </div>
-  </section>
-{% endblock %}
+				<form class="row gx-3 gy-2 align-items-center mt-md-4 mt-0">
+					<div class="col-lg-10 col-8">
+						<label class="visually-hidden" for="specificSizeInputName">Email</label>
+						<input type="email" class="form-control" placeholder="Adresse email">
+					</div>
+					<div class="col-auto">
+						<button type="submit" class="btn bg-green-secondary text-light">S'inscrire</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="d-flex flex-row justify-content-center">
+			<img src="{{ asset('images/background/guy.png') }}" alt="">
+		</div>
+	</div>
+</section>{% endblock %}
