@@ -131,6 +131,11 @@ body {
 }
 
 /* NAVIGATION */
+.navigation {
+  display: flex;
+  justify-content: end;
+}
+
 .navbar-toggler {
   width: 20px;
   height: 20px;
