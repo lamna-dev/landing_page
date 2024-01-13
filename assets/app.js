@@ -44,7 +44,6 @@ if (window.innerWidth < 900) {
 
 window.addEventListener("resize", function () {
   let win = this;
-  console.log(win.innerWidth);
   if (win.innerWidth < 900) {
     screenDesktop.style.display = "none";
     screenMobileSM.style.display = "block";
@@ -69,7 +68,6 @@ var position = 0;
 
 button.addEventListener('click', () => {
   position += cardWidth
-  console.log(position);
   container.scrollTo({
     left: position,
     behavior: 'smooth',
@@ -78,12 +76,36 @@ button.addEventListener('click', () => {
 
 back.addEventListener('click', () => {
   position -= cardWidth
-  console.log(position);
   container.scrollTo({
     left: position,
     behavior: 'smooth',
   });
 })
+
+const progressiveContent = document.getElementById('section-progressive-content');
+const concept1 = document.getElementById('concept1');
+const concept2 = document.getElementById('concept2');
+const concept3 = document.getElementById('concept3');
+
+document.getElementsByTagName('body')[0].onscroll = () => {
+  const marge = 400;
+  if(scrollY >= progressiveContent.offsetTop - marge) {
+    concept1.style.opacity = 1;
+    if(scrollY >= concept2.offsetTop - marge) {
+      concept2.style.opacity = 1;
+    }
+    if(scrollY >= concept3.offsetTop - marge) {
+      concept3.style.opacity = 1;
+    }
+  }
+
+  if(scrollY < progressiveContent.offsetTop - marge) {
+    concept1.style.opacity = 1;
+    concept2.style.opacity = .2;
+    concept3.style.opacity = .2;
+  }
+}
+
 
 
 
