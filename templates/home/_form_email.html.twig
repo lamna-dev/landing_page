@@ -1,0 +1,28 @@
+{# <form class="d-flex gx-3 gy-2 align-items-center mt-md-4 mt-0">
+	<div class="col-lg-10 col-8">
+		<label class="visually-hidden" for="specificSizeInputName">Email</label>
+		<input type="email" class="form-control" placeholder="Adresse email">
+	</div>
+	<div class="col-auto">
+		<button type="submit" class="button-addresse-email">S'inscrire
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
+				<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+			</svg>
+		</button>
+	</div>
+</form> #}
+
+{{form_start(addresseEmailForm)}}
+<div class="form-addresse-mail">
+	<div>
+		{{form_row(addresseEmailForm.email)}}
+	</div>
+	<div>
+		<button type="submit" class="button-addresse-email" id="button-submit-email">S'inscrire
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
+				<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+			</svg>
+		</button>
+	</div>
+</div>
+{{form_end(addresseEmailForm)}}

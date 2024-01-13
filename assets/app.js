@@ -106,6 +106,21 @@ document.getElementsByTagName('body')[0].onscroll = () => {
   }
 }
 
+const buttonSubmitEmail = document.getElementById('button-submit-email');
+const messageAlert = document.getElementById('message-alert');
+messageAlert.style.display = "none";
+
+buttonSubmitEmail.addEventListener('click', () => {
+  console.log("Envoyé");
+  messageAlert.style.display = "block";
+  setTimeout(() => {
+    messageAlert.style.display = "none";
+  }, 3000);
+
+})
+
+
+
 
 
 
