@@ -54,3 +54,24 @@ window.addEventListener("resize", function () {
     screenMobileDispoSM.style.display = "none";
   }
 });
+
+
+
+// sildes
+const btns = document.querySelector('.actions-slider');
+if (window.innerWidth < 900) {
+  btns.style.display = "block";
+} else {
+  btns.style.display = "none";
+}
+
+window.addEventListener("resize", function () {
+  let window = this;
+  console.log(window.innerWidth);
+  if (window.innerWidth < 900) {
+    btns.style.display = "block";
+  } else {
+    btns.style.display = "none";
+  }
+});
+
