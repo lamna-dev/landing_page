@@ -393,7 +393,9 @@ body {
   }
 
   /* SLIDES CARDS BLOGS */
-
+  .text-section-blog{
+    width: 85%;
+  }
   /* CARDS */
 
   #container {
