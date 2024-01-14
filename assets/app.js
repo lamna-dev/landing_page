@@ -91,17 +91,23 @@ document.getElementsByTagName('body')[0].onscroll = () => {
   const marge = 400;
   if(scrollY >= progressiveContent.offsetTop - marge) {
     concept1.style.opacity = 1;
-    if(scrollY >= concept2.offsetTop - marge) {
-      concept2.style.opacity = 1;
-    }
-    if(scrollY >= concept3.offsetTop - marge) {
-      concept3.style.opacity = 1;
-    }
+  }
+
+  if(scrollY >= concept2.offsetTop - marge) {
+    concept2.style.opacity = 1;
+  }
+  if(scrollY >= concept3.offsetTop - marge) {
+    concept3.style.opacity = 1;
   }
 
   if(scrollY < progressiveContent.offsetTop - marge) {
-    concept1.style.opacity = 1;
+    concept1.style.opacity = 1;   
+  }
+
+  if(scrollY < concept2.offsetTop - marge) {
     concept2.style.opacity = .2;
+  }
+  if(scrollY < concept3.offsetTop - marge) {
     concept3.style.opacity = .2;
   }
 }
