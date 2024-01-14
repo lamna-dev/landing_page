@@ -460,3 +460,34 @@ body {
     left: 25%;
   }
 }
+
+#message-alert{
+  display: none;
+}
+
+
+/* NEWSLETTER */
+.image-newsletter{
+  position: relative;
+}
+
+.box-links-newsletter{
+  position: absolute;
+  top:65%;
+  left: 50%;
+  transform: translateX(-80%);
+  background-color: var(--tertiary-green-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: var(--secondary-green-color) 0px 2px 8px 0px;
+}
+
+.box-links-newsletter p {
+  font-size: 20px;
+  color:var(--main-green-color);
+}
+
+.links-newsletter {
+  list-style-type: none;
+  display: flex;
+}

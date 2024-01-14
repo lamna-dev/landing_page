@@ -112,18 +112,19 @@ document.getElementsByTagName('body')[0].onscroll = () => {
   }
 }
 
-const buttonSubmitEmail = document.getElementById('button-submit-email');
-const messageAlert = document.getElementById('message-alert');
-messageAlert.style.display = "none";
+// const buttonSubmitEmail = document.getElementById('button-submit-email');
+// const messageAlert = document.getElementById('message-alert');
 
-buttonSubmitEmail.addEventListener('click', () => {
-  console.log("Envoyé");
-  messageAlert.style.display = "block";
-  setTimeout(() => {
-    messageAlert.style.display = "none";
-  }, 3000);
+// buttonSubmitEmail.addEventListener('click', () => {
+//   console.log("Envoyé");
+//   messageAlert.style.display = "block";
+//   setTimeout(() => {
+//     messageAlert.style.display = "none";
+//   }, 10000);
+// })
 
-})
+const inputNewsletter = document.getElementById('input-newsletter');
+console.log(inputNewsletter);
 
 
 

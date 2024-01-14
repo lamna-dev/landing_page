@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     {
         // Create new Addresse email
         $addresseEmail = new Addresses();
-        $route = $request->headers->get('referer');
+        $addresseEmail->setEmail('');
 
         // Create form
         $addresseEmailForm = $this->createForm(AddressesFormType::class, $addresseEmail);
@@ -29,10 +29,13 @@ class HomeController extends AbstractController
         //Check form
         if($addresseEmailForm->isSubmitted() && $addresseEmailForm->isValid()) {
 
-            $entityManagerInterface->persist($addresseEmail);
-            // Persist object in Bdd
-            $entityManagerInterface->flush();
-            return $this->redirect($route);
+            // $entityManagerInterface->persist($addresseEmail);
+            // // Persist object in Bdd
+            // $entityManagerInterface->flush();
+
+            $this->addFlash('success', 'Bravo! Votre email a bien été enregistré.');
+            $addresseEmail->setEmail('');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('home/index.html.twig', [
