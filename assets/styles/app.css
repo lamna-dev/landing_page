@@ -19,13 +19,13 @@ html {
   scroll-behavior: smooth !important;
 }
 
-.form-addresse-mail{
+.form-addresse-mail {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
 }
 
-.button-addresse-email{
+.button-addresse-email {
   background-color: var(--main-green-color);
   color: var(--main-white-color);
   border-radius: 5px;
@@ -401,7 +401,7 @@ body {
   }
 
   /* SLIDES CARDS BLOGS */
-  .text-section-blog{
+  .text-section-blog {
     width: 85%;
   }
   /* CARDS */
@@ -461,19 +461,18 @@ body {
   }
 }
 
-#message-alert{
+#message-alert {
   display: none;
 }
 
-
 /* NEWSLETTER */
-.image-newsletter{
+.image-newsletter {
   position: relative;
 }
 
-.box-links-newsletter{
+.box-links-newsletter {
   position: absolute;
-  top:65%;
+  top: 65%;
   left: 50%;
   transform: translateX(-80%);
   background-color: var(--tertiary-green-color);
@@ -484,10 +483,40 @@ body {
 
 .box-links-newsletter p {
   font-size: 20px;
-  color:var(--main-green-color);
+  color: var(--main-green-color);
 }
 
 .links-newsletter {
   list-style-type: none;
   display: flex;
+}
+
+/* ------------------------------ BLOG PAGE  ----------------------------*/
+.header-blog {
+  width: 100%;
+  height: max-content;
+  background-image: url("../images/background/fondHeader.png");
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 90px 0;
+}
+
+/* FILTERS  */
+#section-filters{
+  padding-top: 80px;
+}
+
+.title-filters {
+  color: var(--main-black-color);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
