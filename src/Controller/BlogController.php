@@ -11,29 +11,25 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    #[Route('/blog', name: 'app_blog')]
-    public function index(EntityManagerInterface $entityManagerInterface): Response
-    {
-        $categoriesRepository = $entityManagerInterface->getRepository(Categories::class);
-
-        $categories = [];
-        foreach ($categoriesRepository->findAll() as $categorie) {
-            if (count($categories) === 0) {
-                $categories[] = 'Tous';
-            }
-            $categories[] = $categorie->getName();
-        }
-        return $this->render('blog/index.html.twig', [
-            'categories' => $categories
-        ]);
-    }
-
-    #[Route('/blog/{filter}', name: 'app_blog_filter')]
+    #[Route('/blog/{filter}', name: 'app_blog')]
     public function showArticles(string $filter, EntityManagerInterface $entityManagerInterface)
     {
+        $categoriesRepository = $entityManagerInterface->getRepository(Categories::class);
+        $categories = $categoriesRepository->findAll();
+
+        $filters = [];
+        foreach ($categoriesRepository->findAll() as $categorie) {
+            if (count($filters) === 0) {
+                $filters[] = 'Tous';
+            }
+            $filters[] = $categorie->getName();
+        }
         $postRepository = $entityManagerInterface->getRepository(Posts::class);
-        $posts = [];
+        $posts = $postRepository->findAll();
+
         return $this->render('blog/index.html.twig', [
+            'filters' => $filters,
+            'categories' => $categories,
             'posts' => $posts
         ]);
     }

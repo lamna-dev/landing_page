@@ -481,6 +481,15 @@ body {
 }
 
 
+/* ------------------------------- BLOG PAGE --------------------- */
+
+.articles-blog{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* ------------------------- MOBILE --------------------------- */
 
 @media screen and (max-width: 900px) {

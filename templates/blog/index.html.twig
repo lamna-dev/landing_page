@@ -15,11 +15,11 @@
 				<div class="box-filters">
 					<ul>
 						<li class="filters">
-							{% for categorie in categories %}
-								{% if app.request.get('filter') == categorie %}
-									<a href="{{path('app_blog', {'filter': categorie})}}" class="filter active-filter">{{categorie | upper}}</a>
+							{% for filter in filters %}
+								{% if app.request.get('filter') == filter %}
+									<a href="{{path('app_blog', {'filter': filter})}}" class="filter active-filter">{{filter | upper}}</a>
 								{% else %}
-									<a href="{{path('app_blog', {'filter': categorie})}}" class="filter">{{categorie | upper}}</a>
+									<a href="{{path('app_blog', {'filter': filter})}}" class="filter">{{filter | upper}}</a>
 								{% endif %}
 
 							{% endfor %}
@@ -27,4 +27,34 @@
 					</ul>
 				</div>
 			</section>
-		{% endblock %}
+			<section class="section-blog">
+				<p class="concept">Blog</p>
+				<h2 class="title-blog">L’actualité du côté de lämna</h2>
+				<p class="text-section-blog">Découvrez le monde du voyage éco-responsable avec le blog lämna. Astuces, destinations durables, et trésors locaux vous attendent pour une exploration responsable et enrichissante.</p>
+				<div class="articles-blog">
+					{% for post in posts %}
+						<div class="article">
+							<div class="card-image"><img src="{{ asset("/#{post.getFeaturedImage()}") }}" alt="Photo de l'article 1"/></div>
+							<div class="content-article">
+								<div class="box-label-and-date">
+								{# Relation class many to many #}
+									{% for category in post.categories %}
+										<span class="concept">{{category.name}}</span>
+									{% endfor %}
+									<span class="date-card-article">{{post.createdAt |format_datetime('short', 'none', locale='fr')}}</span>
+								</div>
+								<div class="description-article">{{post.title}}
+								</div>
+								<a class="nav-link" href="#">Lire l'article
+									<span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
+											<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+										</svg>
+									</span>
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+					<div></div>
+				</section>
+			{% endblock %}
