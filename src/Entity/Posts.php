@@ -38,6 +38,9 @@ class Posts
     #[ORM\ManyToMany(targetEntity: Paragraphs::class, inversedBy: 'posts')]
     private Collection $paragraphs;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $CreatedAt = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -153,6 +156,18 @@ class Posts
     public function removeParagraph(Paragraphs $paragraph): static
     {
         $this->paragraphs->removeElement($paragraph);
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->CreatedAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $CreatedAt): static
+    {
+        $this->CreatedAt = $CreatedAt;
 
         return $this;
     }

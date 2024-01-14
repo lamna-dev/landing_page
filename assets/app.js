@@ -26,111 +26,136 @@ const screenDesktop = document.querySelector(".screenDesktop");
 const screenMobileSM = document.querySelector(".screenMobileSM");
 const screenMobileDispoXL = document.querySelector(".screenMobileDispoXL");
 const screenMobileDispoSM = document.querySelector(".screenMobileDispoSM");
-const contentCards = document.getElementById('content');  
+const contentCards = document.getElementById("content");
 
 if (window.innerWidth < 900) {
-  screenDesktop.style.display = "none";
-  screenMobileSM.style.display = "block";
-  screenMobileDispoXL.style.display = "none";
-  screenMobileDispoSM.style.display = "block";
-  contentCards.classList.remove('screenDesktopForSlides');
+  if (screenDesktop !== null) {
+    screenDesktop.style.display = "none";
+  }
+  if (screenMobileSM !== null) {
+    screenMobileSM.style.display = "block";
+  }
+  if (screenMobileDispoXL !== null) {
+    screenMobileDispoXL.style.display = "none";
+  }
+  if (screenMobileDispoSM !== null) {
+    screenMobileDispoSM.style.display = "block";
+  }
+  if (contentCards !== null) {
+    contentCards.classList.remove("screenDesktopForSlides");
+  }
 } else {
-  screenDesktop.style.display = "block";
-  screenMobileSM.style.display = "none";
-  screenMobileDispoXL.style.display = "block";
-  screenMobileDispoSM.style.display = "none";
-  contentCards.classList.add('screenDesktopForSlides');
+  if (screenDesktop !== null) {
+    screenDesktop.style.display = "block";
+  }
+  if (screenMobileSM !== null) {
+    screenMobileSM.style.display = "none";
+  }
+  if (screenMobileDispoXL !== null) {
+    screenMobileDispoXL.style.display = "block";
+  }
+  if (screenMobileDispoSM !== null) {
+    screenMobileDispoSM.style.display = "none";
+  }
+  if (contentCards !== null) {
+    contentCards.classList.add("screenDesktopForSlides");
+  }
 }
 
 window.addEventListener("resize", function () {
   let win = this;
   if (win.innerWidth < 900) {
-    screenDesktop.style.display = "none";
-    screenMobileSM.style.display = "block";
-    screenMobileDispoXL.style.display = "none";
-    screenMobileDispoSM.style.display = "block";
-    contentCards.classList.remove('screenDesktopForSlides');
+    if (screenDesktop !== null) {
+      screenDesktop.style.display = "none";
+    }
+    if (screenMobileSM !== null) {
+      screenMobileSM.style.display = "block";
+    }
+    if (screenMobileDispoXL !== null) {
+      screenMobileDispoXL.style.display = "none";
+    }
+    if (screenMobileDispoSM !== null) {
+      screenMobileDispoSM.style.display = "block";
+    }
+    if (contentCards !== null) {
+      contentCards.classList.remove("screenDesktopForSlides");
+    }
   } else {
-    screenDesktop.style.display = "block";
-    screenMobileSM.style.display = "none";
-    screenMobileDispoXL.style.display = "block";
-    screenMobileDispoSM.style.display = "none";
-    contentCards.classList.add('screenDesktopForSlides');
+    if (screenDesktop !== null) {
+      screenDesktop.style.display = "block";
+    }
+    if (screenMobileSM !== null) {
+      screenMobileSM.style.display = "none";
+    }
+    if (screenMobileDispoXL !== null) {
+      screenMobileDispoXL.style.display = "block";
+    }
+    if (screenMobileDispoSM !== null) {
+      screenMobileDispoSM.style.display = "none";
+    }
+    if (contentCards !== null) {
+      contentCards.classList.add("screenDesktopForSlides");
+    }
   }
 });
 
 // sildes
-const button = document.getElementById('slide');
-const back = document.getElementById('slideBack');
-const container = document.getElementById('container');
+const button = document.getElementById("slide");
+const back = document.getElementById("slideBack");
+const container = document.getElementById("container");
 const cardWidth = 450;
 var position = 0;
 
-button.addEventListener('click', () => {
-  position += cardWidth
-  container.scrollTo({
-    left: position,
-    behavior: 'smooth',
+if(button !== null) {
+  button.addEventListener("click", () => {
+    position += cardWidth;
+    container.scrollTo({
+      left: position,
+      behavior: "smooth",
+    });
   });
-})
+}
 
-back.addEventListener('click', () => {
-  position -= cardWidth
-  container.scrollTo({
-    left: position,
-    behavior: 'smooth',
+if(back !== null) {
+  back.addEventListener("click", () => {
+    position -= cardWidth;
+    container.scrollTo({
+      left: position,
+      behavior: "smooth",
+    });
   });
-})
+}
 
-const progressiveContent = document.getElementById('section-progressive-content');
-const concept1 = document.getElementById('concept1');
-const concept2 = document.getElementById('concept2');
-const concept3 = document.getElementById('concept3');
 
-document.getElementsByTagName('body')[0].onscroll = () => {
+const progressiveContent = document.getElementById(
+  "section-progressive-content"
+);
+const concept1 = document.getElementById("concept1");
+const concept2 = document.getElementById("concept2");
+const concept3 = document.getElementById("concept3");
+
+document.getElementsByTagName("body")[0].onscroll = () => {
   const marge = 400;
-  if(scrollY >= progressiveContent.offsetTop - marge) {
+  if (scrollY >= progressiveContent.offsetTop - marge) {
     concept1.style.opacity = 1;
   }
 
-  if(scrollY >= concept2.offsetTop - marge) {
+  if (scrollY >= concept2.offsetTop - marge) {
     concept2.style.opacity = 1;
   }
-  if(scrollY >= concept3.offsetTop - marge) {
+  if (scrollY >= concept3.offsetTop - marge) {
     concept3.style.opacity = 1;
   }
 
-  if(scrollY < progressiveContent.offsetTop - marge) {
-    concept1.style.opacity = 1;   
+  if (scrollY < progressiveContent.offsetTop - marge) {
+    concept1.style.opacity = 1;
   }
 
-  if(scrollY < concept2.offsetTop - marge) {
-    concept2.style.opacity = .2;
+  if (scrollY < concept2.offsetTop - marge) {
+    concept2.style.opacity = 0.2;
   }
-  if(scrollY < concept3.offsetTop - marge) {
-    concept3.style.opacity = .2;
+  if (scrollY < concept3.offsetTop - marge) {
+    concept3.style.opacity = 0.2;
   }
-}
-
-// const buttonSubmitEmail = document.getElementById('button-submit-email');
-// const messageAlert = document.getElementById('message-alert');
-
-// buttonSubmitEmail.addEventListener('click', () => {
-//   console.log("Envoyé");
-//   messageAlert.style.display = "block";
-//   setTimeout(() => {
-//     messageAlert.style.display = "none";
-//   }, 10000);
-// })
-
-const inputNewsletter = document.getElementById('input-newsletter');
-console.log(inputNewsletter);
-
-
-
-
-
-
-
-
+};
 

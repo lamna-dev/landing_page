@@ -1,17 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}Blog
+{% endblock %}
 
 {% block body %}
-<header class="header-blog">
-    <div class="header-content">
-        <p class="concept">Blog</p>
-		<h2 class="title-blog">L’actualité du côté de lämna</h2>
-		<p class="text-section-blog">Découvrez le monde du voyage éco-responsable avec le blog lämna. Astuces, destinations durables, et trésors locaux vous attendent pour une exploration responsable et enrichissante.</p>
-    <div>
-</header>
-<section id="section-filters">
-    <p class="title-filters">Trier par catégories</p>
-    <div></div>
-</section>
-{% endblock %}
+	<header class="header-blog">
+		<div class="header-content">
+			<p class="concept">Blog</p>
+			<h2 class="title-blog">L’actualité du côté de lämna</h2>
+			<p class="text-section-blog">Découvrez le monde du voyage éco-responsable avec le blog lämna. Astuces, destinations durables, et trésors locaux vous attendent pour une exploration responsable et enrichissante.</p>
+			<div></header>
+			<section id="section-filters" class="mb-3">
+				<p class="title-filters">Trier par catégories</p>
+				<div class="box-filters">
+					<ul>
+						<li class="filters">
+							{% for categorie in categories %}
+								{% if app.request.get('filter') == categorie %}
+									<a href="{{path('app_blog', {'filter': categorie})}}" class="filter active-filter">{{categorie | upper}}</a>
+								{% else %}
+									<a href="{{path('app_blog', {'filter': categorie})}}" class="filter">{{categorie | upper}}</a>
+								{% endif %}
+
+							{% endfor %}
+						</li>
+					</ul>
+				</div>
+			</section>
+		{% endblock %}
