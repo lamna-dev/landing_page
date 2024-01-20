@@ -17,9 +17,9 @@
 						<li class="filters">
 							{% for filter in filters %}
 								{% if app.request.get('filter') == filter %}
-									<a href="{{path('app_blog', {'filter': filter})}}" class="filter active-filter">{{filter | upper}}</a>
+									<a href="{{path('blog_all_articles', {'filter': filter})}}" class="filter active-filter">{{filter | upper}}</a>
 								{% else %}
-									<a href="{{path('app_blog', {'filter': filter})}}" class="filter">{{filter | upper}}</a>
+									<a href="{{path('blog_all_articles', {'filter': filter})}}" class="filter">{{filter | upper}}</a>
 								{% endif %}
 
 							{% endfor %}
@@ -45,7 +45,7 @@
 								</div>
 								<div class="description-article">{{post.title}}
 								</div>
-								<a class="nav-link" href="#">Lire l'article
+								<a class="nav-link" href="{{ path('blog_details_article', {slug: post.slug, id: post.id}) }}">Lire l'article
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewbox="0 0 16 16">
 											<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>

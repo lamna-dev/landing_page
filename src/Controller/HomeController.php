@@ -13,7 +13,7 @@ use Symfony\Component\Mime\Address;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/', name: 'home')]
     public function index(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
         // Create new Addresse email
@@ -35,7 +35,7 @@ class HomeController extends AbstractController
 
             $this->addFlash('success', 'Bravo! Votre email a bien été enregistré.');
             $addresseEmail->setEmail('');
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('home/index.html.twig', [

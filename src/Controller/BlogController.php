@@ -10,9 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/blog', requirements: ['_locale' => 'en|es|fr'], name: 'blog_')]
 class BlogController extends AbstractController
 {
-    #[Route('/blog/{filter}', name: 'app_blog')]
+    #[Route('/{filter}', name: 'all_articles')]
     public function showArticles(string $filter, Request $request, EntityManagerInterface $entityManagerInterface)
     {
         $categoriesRepository = $entityManagerInterface->getRepository(Categories::class);
@@ -42,6 +43,14 @@ class BlogController extends AbstractController
             'filters' => $filters,
             'categories' => $categories,
             'posts' => $posts
+        ]);
+    }
+
+    #[Route('/${slug}/{id<\d+>}',  name: 'details_article')]
+    public function showOneArticle(int $id) 
+    {
+        return $this->render('blog/details.html.twig', [
+            'id' => $id
         ]);
     }
 }
