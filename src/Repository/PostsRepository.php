@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Categories;
 use App\Entity\Posts;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,6 +20,16 @@ class PostsRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Posts::class);
+    }
+    
+    public function findByCategory(Categories $category)
+    {
+        return $this->createQueryBuilder('p')
+            ->innerJoin('p.categories', 'c')
+            ->andWhere('c.id = :categoryId')->setParameter('categoryId',$category->getId())
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
 //    /**
