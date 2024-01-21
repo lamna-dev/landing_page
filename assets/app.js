@@ -27,6 +27,9 @@ const screenMobileSM = document.querySelector(".screenMobileSM");
 const screenMobileDispoXL = document.querySelector(".screenMobileDispoXL");
 const screenMobileDispoSM = document.querySelector(".screenMobileDispoSM");
 const contentCards = document.getElementById("content");
+const progressiveContent = document.getElementById(
+  "section-progressive-content"
+);
 
 if (window.innerWidth < 900) {
   if (screenDesktop !== null) {
@@ -64,7 +67,9 @@ if (window.innerWidth < 900) {
 
 window.addEventListener("resize", function () {
   let win = this;
+  console.log(win.innerWidth);
   if (win.innerWidth < 900) {
+
     if (screenDesktop !== null) {
       screenDesktop.style.display = "none";
     }
@@ -104,7 +109,7 @@ const button = document.getElementById("slide");
 const back = document.getElementById("slideBack");
 const container = document.getElementById("container");
 const cardWidth = 450;
-var position = 0;
+let position = 0;
 
 if (button !== null) {
   button.addEventListener("click", () => {
@@ -126,9 +131,9 @@ if (back !== null) {
   });
 }
 
-const progressiveContent = document.getElementById(
-  "section-progressive-content"
-);
+
+// CONCEPTS
+
 const concept1 = document.getElementById("concept1");
 const concept2 = document.getElementById("concept2");
 const concept3 = document.getElementById("concept3");
@@ -177,3 +182,32 @@ document.getElementsByTagName("body")[0].onscroll = () => {
     numberImage.textContent = "3"
   }
 };
+
+// CONCEPTS MOBILE
+
+// sildes
+const buttonConcepts = document.getElementById("slide-concepts-mobile");
+const backConcepts = document.getElementById("slideBack-concepts-mobile");
+const containerConcepts = document.getElementById("container-concepts-mobile");
+const cardWidthConcepts = 355;
+let positionConcept = 0;
+
+if (buttonConcepts !== null) {
+  buttonConcepts.addEventListener("click", () => {
+    positionConcept += cardWidthConcepts;
+    containerConcepts.scrollTo({
+      left: positionConcept,
+      behavior: "smooth",
+    });
+  });
+}
+
+if (backConcepts !== null) {
+  backConcepts.addEventListener("click", () => {
+    positionConcept -= cardWidthConcepts;
+    containerConcepts.scrollTo({
+      left: positionConcept,
+      behavior: "smooth",
+    });
+  });
+}
