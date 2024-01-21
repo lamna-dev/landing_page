@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Addresses;
+use App\Entity\Posts;
 use App\Form\AddressesFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
+        $posts = [];
         // Create new Addresse email
         $addresseEmail = new Addresses();
         $addresseEmail->setEmail('');
@@ -38,8 +40,13 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+        // 3 last articles
+        $postRepository = $entityManagerInterface->getRepository(Posts::class);
+        $posts = $postRepository->findBy([],['id' => 'DESC'], 3);
+
         return $this->render('home/index.html.twig', [
-            'addresseEmailForm' => $addresseEmailForm->createView()
+            'addresseEmailForm' => $addresseEmailForm->createView(),
+            'posts' => $posts
         ]);
     }
 }
