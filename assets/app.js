@@ -1,11 +1,5 @@
 import "./bootstrap.js";
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
-import "./styles/app.css";
+import "./styles/app.css";  
 
 const navbarToggle = document.querySelector(".navbar-toggler");
 const navBarNav = document.querySelector(".navbar-nav");
@@ -27,6 +21,7 @@ const screenMobileSM = document.querySelector(".screenMobileSM");
 const screenMobileDispoXL = document.querySelector(".screenMobileDispoXL");
 const screenMobileDispoSM = document.querySelector(".screenMobileDispoSM");
 const contentCards = document.getElementById("content");
+const contentCardsBlogDetails = document.getElementById("content-blog-details")
 const progressiveContent = document.getElementById(
   "section-progressive-content"
 );
@@ -47,6 +42,9 @@ if (window.innerWidth < 900) {
   if (contentCards !== null) {
     contentCards.classList.remove("screenDesktopForSlides");
   }
+  if (contentCardsBlogDetails !== null) {
+    contentCardsBlogDetails.classList.remove("screenDesktopForSlidesDetails");
+  }
 } else {
   if (screenDesktop !== null) {
     screenDesktop.style.display = "block";
@@ -61,7 +59,10 @@ if (window.innerWidth < 900) {
     screenMobileDispoSM.style.display = "none";
   }
   if (contentCards !== null) {
-    contentCards.classList.add("screenDesktopForSlides");
+    contentCards.classList.add("screenDesktopForSlidesDetails");
+  }
+  if (contentCardsBlogDetails !== null) {
+    contentCardsBlogDetails.classList.add("screenDesktopForSlidesDetails");
   }
 }
 
@@ -85,6 +86,9 @@ window.addEventListener("resize", function () {
     if (contentCards !== null) {
       contentCards.classList.remove("screenDesktopForSlides");
     }
+    if (contentCardsBlogDetails !== null) {
+      contentCardsBlogDetails.classList.remove("screenDesktopForSlidesDetails");
+    }
   } else {
     if (screenDesktop !== null) {
       screenDesktop.style.display = "block";
@@ -100,6 +104,9 @@ window.addEventListener("resize", function () {
     }
     if (contentCards !== null) {
       contentCards.classList.add("screenDesktopForSlides");
+    }
+    if (contentCardsBlogDetails !== null) {
+      contentCardsBlogDetails.classList.add("screenDesktopForSlidesDetails");
     }
   }
 });
@@ -131,6 +138,32 @@ if (back !== null) {
   });
 }
 
+// sildes blog-details
+const buttonDetails = document.getElementById("slide-details");
+const backDetails = document.getElementById("slideBack-details");
+const containerBlogDetails = document.getElementById("container-blog-details");
+const cardWidthBlogDetails = 450;
+let positionBlogDetails = 0;
+
+if (buttonDetails !== null) {
+  buttonDetails.addEventListener("click", () => {
+    positionBlogDetails += cardWidthBlogDetails;
+    containerBlogDetails.scrollTo({
+      left: positionBlogDetails,
+      behavior: "smooth",
+    });
+  });
+}
+
+if (backDetails !== null) {
+  backDetails.addEventListener("click", () => {
+    positionBlogDetails -= cardWidthBlogDetails;
+    containerBlogDetails.scrollTo({
+      left: positionBlogDetails,
+      behavior: "smooth",
+    });
+  });
+}
 
 // CONCEPTS
 
@@ -142,46 +175,99 @@ const secondaryImage = document.getElementById("main-concept2-img");
 const tertiaryImage = document.getElementById("main-concept3-img");
 const numberImage = document.getElementById("number-image");
 
-concept1.style.opacity = 1;
-initialImage.style.display = "block";
-concept2.style.opacity = 0.2;
-secondaryImage.style.display = "none";
-concept3.style.display = 0.2;
-tertiaryImage.style.display = "none";
+if(concept1 !== null) {
+  concept1.style.opacity = 1;
+}
+if(initialImage !== null) {
+  initialImage.style.display = "block";
+}
+if(concept2 !== null) {
+  concept2.style.opacity = 0.2;
+}
+if(secondaryImage !== null) {
+  secondaryImage.style.display = "none";
+}
+if(concept3 !== null) {
+  concept3.style.opacity = 0.2;
+}
+if(tertiaryImage !== null) {
+  tertiaryImage.style.display = "none";
+}
 
-document.getElementsByTagName("body")[0].onscroll = () => {
-  console.log("SCROLL", scrollY);
-  console.log("POSITION ELEMENT", progressiveContent.offsetTop);
-  console.log(numberImage);
-
-  if (scrollY > 1100 && scrollY < 1249) {
-    concept1.style.opacity = 1;
-    concept2.style.opacity = 0.2;
-    concept3.style.opacity = 0.2;
-    initialImage.style.display = "block";
-    secondaryImage.style.display = "none";
-    tertiaryImage.style.display = "none";
-    numberImage.textContent = "1"
+let lastKnownScrollPosition = 0
+document.addEventListener("scroll", (event) => {
+  lastKnownScrollPosition = window.scrollY;
+  if (lastKnownScrollPosition > 1100 && lastKnownScrollPosition < 1249) {
+    if(concept1 !== null) {
+      concept1.style.opacity = 1;
+    }
+    if(initialImage !== null) {
+      initialImage.style.display = "block";
+    }
+    if(concept2 !== null) {
+      concept2.style.opacity = 0.2;
+    }
+    if(secondaryImage !== null) {
+      secondaryImage.style.display = "none";
+    }
+    if(concept3 !== null) {
+      concept3.style.opacity = 0.2;
+    }
+    if(tertiaryImage !== null) {
+      tertiaryImage.style.display = "none";
+    }
+    if(numberImage !== null) {
+      numberImage.textContent = "1"
+    }
   } 
-  if (scrollY > 1250 && scrollY < 1329) {
-    concept1.style.opacity = 0.2;
-    concept2.style.opacity = 1;
-    concept3.style.opacity = 0.2;
-    initialImage.style.display = "none";
-    secondaryImage.style.display = "block";
-    tertiaryImage.style.display = "none";
-    numberImage.textContent = "2"
+  if (lastKnownScrollPosition > 1250 && lastKnownScrollPosition < 1329) {
+    if(concept1 !== null) {
+      concept1.style.opacity = 0.2;
+    }
+    if(initialImage !== null) {
+      initialImage.style.display = "none";
+    }
+    if(concept2 !== null) {
+      concept2.style.opacity = 1;
+    }
+    if(secondaryImage !== null) {
+      secondaryImage.style.display = "block";
+    }
+    if(concept3 !== null) {
+      concept3.style.opacity = 0.2;
+    }
+    if(tertiaryImage !== null) {
+      tertiaryImage.style.display = "none";
+    }
+    if(numberImage !== null) {
+      numberImage.textContent = "2"
+    }
   }
-  if (scrollY >= 1330){
-    concept1.style.opacity = 0.2;
-    concept2.style.opacity = 0.2;
-    concept3.style.opacity = 1;
-    initialImage.style.display = "none";
-    secondaryImage.style.display = "none";
-    tertiaryImage.style.display = "block";
-    numberImage.textContent = "3"
+  if (lastKnownScrollPosition >= 1330){
+    if(concept1 !== null) {
+      concept1.style.opacity = 0.2;
+    }
+    if(initialImage !== null) {
+      initialImage.style.display = "none";
+    }
+    if(concept2 !== null) {
+      concept2.style.opacity = 0.2;
+    }
+    if(secondaryImage !== null) {
+      secondaryImage.style.display = "none";
+    }
+    if(concept3 !== null) {
+      concept3.style.opacity = 1;
+    }
+    if(tertiaryImage !== null) {
+      tertiaryImage.style.display = "block";
+    }
+    if(numberImage !== null) {
+      numberImage.textContent = "3"
+    }
   }
-};
+});
+
 
 // CONCEPTS MOBILE
 

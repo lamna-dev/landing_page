@@ -46,10 +46,19 @@ class BlogController extends AbstractController
     }
 
     #[Route('/${slug}/{id<\d+>}',  name: 'details_article')]
-    public function showOneArticle(int $id) 
+    public function showOneArticle(int $id, EntityManagerInterface $entityManagerInterface) 
     {
+        $postRepository = $entityManagerInterface->getRepository(Posts::class);
+        $post = $postRepository->findBy(['id'=> $id])[0];
+
+        // 3 posts random
+        $postRepository = $entityManagerInterface->getRepository(Posts::class);
+
+        $posts = $postRepository->findAllExceptThis($post);
+
         return $this->render('blog/details.html.twig', [
-            'id' => $id
+            'post' => $post,
+            'posts' => array_slice($posts, 0, 3)
         ]);
     }
 }

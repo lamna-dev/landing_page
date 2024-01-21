@@ -17,7 +17,7 @@
 }
 
 html {
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
 }
 
 .form-addresse-mail {
@@ -54,90 +54,6 @@ html {
   height: 1px;
 }
 
-/*---------------- SLIDES DOUBLE PHONES ----------------------*/
-
-.doublephones {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-}
-
-.block-images-slides-doublephones {
-  position: relative;
-}
-
-.number-image {
-  position: absolute;
-  left: 45%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--main-white-color);
-  font-weight: 700;
-}
-
-.rounded-box-number {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  position: absolute;
-  left: 20px;
-  bottom: 10px;
-  background-color: #69b483;
-}
-
-#doublephones-mobiles {
-  display: none;
-}
-
-#container-concepts-mobile {
-  max-height: max-content;
-  overflow: scroll;
-  width: 350px;
-}
-#content-concepts-mobile {
-  width: 350px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-}
-
-.container-concept-image-and-text-mobile {
-  max-width: 350px;
-  max-height: max-content;
-}
-.container-concept-image {
-  background-color: var(--tertiary-green-color);
-  border-radius: 10px;
-  position: relative;
-}
-.content-concept-mobile {
-  margin-left: 5px;
-  max-width: 350px;
-  max-height: max-content;
-}
-.title-concepts-mobile {
-  width: 90%;
-  white-space: pre-wrap;
-  color: var(--secondary-green-color);
-  font-weight: 600;
-}
-
-.description-article-mobile {
-  width: 95%;
-  white-space: pre-wrap;
-}
-
-.btns-doublephones-mobile {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  min-height: 50px;
-  padding: 0;
-}
-
-/* ------------------------------------- */
 
 .list-number {
   font-size: 18px;
@@ -224,7 +140,7 @@ body {
   font-family: "ClashDisplay-Variable";
 }
 
-/* NAVIGATION */
+/* _____________________________________NAVIGATION ____________________________________________________*/
 .navigation {
   display: flex;
   justify-content: end;
@@ -268,7 +184,7 @@ body {
   margin-top: 0px;
 }
 
-/* When navigation is cliked */
+/*_________________________________ When navigation is cliked__________________________________________ */
 .navbar-toggler .top-bar {
   margin: 0px;
   transform: rotate(135deg);
@@ -284,7 +200,7 @@ body {
   transform: rotate(-135deg);
 }
 
-/* State when the navbar is collapsed */
+/*____________________________________________ State when the navbar is collapsed______________________________________________ */
 
 .navbar-toggler.collapsed .top-bar {
   margin-top: -20px;
@@ -323,7 +239,8 @@ body {
   justify-content: center;
 }
 
-/* PRESENTATION */
+
+/*-------------------- PRESENTATION -----------------------------------------------*/
 
 #section-presentation {
   width: 100%;
@@ -391,7 +308,7 @@ body {
   line-height: 24px;
 }
 
-/* MOBILES SECTIONS */
+/* --------------------------------------MOBILES SECTIONS TEASING---------------------------------------------- */
 #mobile-app-teasing {
   width: 100%;
   position: relative;
@@ -434,7 +351,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* CARDS */
+/*________________________________ CARDS_______________________________________ */
 
 .screenDesktopForSlides {
   display: flex;
@@ -472,7 +389,7 @@ body {
   display: none;
 }
 
-/* NEWSLETTER */
+/*_________________________________________ NEWSLETTER____________________________________________ */
 .image-newsletter {
   position: relative;
 }
@@ -497,6 +414,97 @@ body {
   list-style-type: none;
   display: flex;
 }
+/*---------------- SLIDES DOUBLE PHONES ----------------------*/
+
+.doublephones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.block-images-slides-doublephones {
+  position: relative;
+}
+
+.number-image {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--main-white-color);
+  font-weight: 700;
+}
+
+.rounded-box-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  background-color: #69b483;
+}
+
+#doublephones-mobiles {
+  display: none;
+}
+
+#container-concepts-mobile {
+  max-height: max-content;
+  overflow: scroll;
+  width: 350px;
+}
+#content-concepts-mobile {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+#main-concept1-img{
+  display: block;
+}
+
+#main-concept2-img, #main-concept3-img{
+  display: none;
+}
+
+.container-concept-image-and-text-mobile {
+  max-width: 350px;
+  max-height: max-content;
+}
+.container-concept-image {
+  background-color: var(--tertiary-green-color);
+  border-radius: 10px;
+  position: relative;
+}
+.content-concept-mobile {
+  margin-left: 5px;
+  max-width: 350px;
+  max-height: max-content;
+}
+.title-concepts-mobile {
+  width: 90%;
+  white-space: pre-wrap;
+  color: var(--secondary-green-color);
+  font-weight: 600;
+}
+
+.description-article-mobile {
+  width: 95%;
+  white-space: pre-wrap;
+}
+
+.btns-doublephones-mobile {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 0;
+}
+
 
 /* ------------------------------ BLOG PAGE  ----------------------------*/
 .header-blog {
@@ -567,6 +575,82 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+
+
+/* -------------------------------- BLOG DETAILS PAGE ------------------- */
+
+.section-blog-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.header-blog-details{
+  max-height: max-content;
+  background-image: url("../images/background/fondHeader.png");
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.container-header-blog-details{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.block-image-header-blog-details{
+  width: 60%;
+}
+
+.block-image-header-blog-details img{
+  width: 80%;
+}
+.concept-blog-details {
+  max-width: max-content;
+  padding: 0.1em 0.5em;
+  background-color: var(--main-skin-color);
+  color: var(--main-yellow-color);
+  border: 1px solid var(--main-yellow-color);
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+.date-card-article-blog-details {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.link-header-blog-details{
+  margin-bottom: 40px;
+}
+
+.link-header-blog-details a {
+  text-decoration: none;
+  color: var(--main-black-color);
+}
+
+.title-header-blog-details{
+  color: var(--secondary-green-color);
+  font-weight: 500;
+}
+
+.description-blog-details{
+  font-size: 18px;
+}
+
+.content-header-blog-details{
+  width: 40%;
+}
+
+.screenDesktopForSlidesDetails{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+  
 
 /* ------------------------- MOBILE --------------------------- */
 
@@ -662,5 +746,93 @@ body {
   }
   #doublephones-mobiles {
     display: block;
+  }
+
+  /* -----------------BLOG DETAILS________________________ */
+  .section-blog-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+  }
+
+  .container-header-blog-details {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .block-image-header-blog-details{
+    width: 100%;
+  }
+
+  .block-image-header-blog-details img{
+    width: 100%;
+  }
+
+  .content-header-blog-details{
+    width: 100%;
+  }
+
+  .title-blog-details {
+    width: 85%;
+  }
+
+  /* SLIDES CARDS BLOGS */
+  .text-section-blog-details {
+    width: 85%;
+  }
+
+  #container-blog-details {
+    max-height: max-content;
+    overflow: scroll;
+    width: 450px;
+  }
+  #content-blog-details {
+    width: 450px;
+    display: flex;
+    gap: 20px;
+    white-space: nowrap;
+  }
+
+  /* BUTTONS SLIDER */
+  .actions-slider-blog-details {
+    display: flex!important;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+    padding: 0;
+  }
+
+  .btn-right-blog-details {
+    position: relative;
+    top: 0;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--tertiary-green-color);
+    border-radius: 50%;
+  }
+
+  .btn-left-blog-details{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: var(--tertiary-green-color);
+    border-radius: 50%;
+  }
+
+  .btn-left-blog-details img {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+  }
+
+  .btn-right-blog-details img {
+    position: absolute;
+    top: 25%;
+    left: 25%;
   }
 }

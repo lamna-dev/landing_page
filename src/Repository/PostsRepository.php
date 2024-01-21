@@ -32,6 +32,15 @@ class PostsRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findAllExceptThis(Posts $post)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id != :postId')
+            ->setParameter('postId', $post->getId())
+            ->getQuery()
+            ->execute();
+    }
+
 //    /**
 //     * @return Posts[] Returns an array of Posts objects
 //     */
