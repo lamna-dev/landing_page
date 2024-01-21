@@ -29,9 +29,9 @@ class HomeController extends AbstractController
         //Check form
         if($addresseEmailForm->isSubmitted() && $addresseEmailForm->isValid()) {
 
-            // $entityManagerInterface->persist($addresseEmail);
-            // // Persist object in Bdd
-            // $entityManagerInterface->flush();
+            $entityManagerInterface->persist($addresseEmail);
+            // Persist object in Bdd
+            $entityManagerInterface->flush();
 
             $this->addFlash('success', 'Bravo! Votre email a bien été enregistré.');
             $addresseEmail->setEmail('');

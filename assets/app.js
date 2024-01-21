@@ -106,7 +106,7 @@ const container = document.getElementById("container");
 const cardWidth = 450;
 var position = 0;
 
-if(button !== null) {
+if (button !== null) {
   button.addEventListener("click", () => {
     position += cardWidth;
     container.scrollTo({
@@ -116,7 +116,7 @@ if(button !== null) {
   });
 }
 
-if(back !== null) {
+if (back !== null) {
   back.addEventListener("click", () => {
     position -= cardWidth;
     container.scrollTo({
@@ -126,36 +126,58 @@ if(back !== null) {
   });
 }
 
-
 const progressiveContent = document.getElementById(
   "section-progressive-content"
 );
+
 const concept1 = document.getElementById("concept1");
 const concept2 = document.getElementById("concept2");
 const concept3 = document.getElementById("concept3");
+const initialImage = document.getElementById("main-concept1-img");
+const secondaryImage = document.getElementById("main-concept2-img");
+const tertiaryImage = document.getElementById("main-concept3-img");
+const numberImage = document.getElementById("number-image");
+
+concept1.style.opacity = 1;
+initialImage.style.display = "block";
+concept2.style.opacity = 0.2;
+secondaryImage.style.display = "none";
+concept3.style.display = 0.2;
+tertiaryImage.style.display = "none";
 
 document.getElementsByTagName("body")[0].onscroll = () => {
-  const marge = 400;
-  if (scrollY >= progressiveContent.offsetTop - marge) {
+  console.log("SCROLL", scrollY);
+  console.log("POSITION ELEMENT", progressiveContent.offsetTop);
+  console.log(numberImage);
+
+  if (scrollY > 1100 && scrollY < 1249) {
+    console.log("TEXT 1");
     concept1.style.opacity = 1;
-  }
-
-  if (scrollY >= concept2.offsetTop - marge) {
-    concept2.style.opacity = 1;
-  }
-  if (scrollY >= concept3.offsetTop - marge) {
-    concept3.style.opacity = 1;
-  }
-
-  if (scrollY < progressiveContent.offsetTop - marge) {
-    concept1.style.opacity = 1;
-  }
-
-  if (scrollY < concept2.offsetTop - marge) {
     concept2.style.opacity = 0.2;
-  }
-  if (scrollY < concept3.offsetTop - marge) {
     concept3.style.opacity = 0.2;
+    initialImage.style.display = "block";
+    secondaryImage.style.display = "none";
+    tertiaryImage.style.display = "none";
+    numberImage.textContent = "1"
+  } 
+  if (scrollY > 1250 && scrollY < 1329) {
+    console.log("TEXT 2");
+    concept1.style.opacity = 0.2;
+    concept2.style.opacity = 1;
+    concept3.style.opacity = 0.2;
+    initialImage.style.display = "none";
+    secondaryImage.style.display = "block";
+    tertiaryImage.style.display = "none";
+    numberImage.textContent = "2"
+  }
+  if (scrollY >= 1330){
+    console.log("TEXT 3");
+    concept1.style.opacity = 0.2;
+    concept2.style.opacity = 0.2;
+    concept3.style.opacity = 1;
+    initialImage.style.display = "none";
+    secondaryImage.style.display = "none";
+    tertiaryImage.style.display = "block";
+    numberImage.textContent = "3"
   }
 };
-

@@ -28,7 +28,6 @@ class BlogController extends AbstractController
             $filters[] = $categorie->getName();
         }
         $request->query->all();
-        dump($filter);
 
         $postRepository = $entityManagerInterface->getRepository(Posts::class);
 

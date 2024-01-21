@@ -13,7 +13,7 @@
   --main-skin-color: #fbe9cc;
   --main-pink-light: #fef8;
   --main-yellow-color: #fda727;
-  --main-grey-color: #C2C2C2;
+  --main-grey-color: #c2c2c2;
 }
 
 html {
@@ -35,12 +35,10 @@ html {
   margin-left: 10px;
 }
 
-
-.button-hover-transform:hover{
+.button-hover-transform:hover {
   background-color: var(--secondary-green-color);
   color: var(--main-white-color);
 }
-
 
 .font-size-choices {
   font-size: 22px;
@@ -56,10 +54,31 @@ html {
   height: 1px;
 }
 
-.doublephones {
-  background-color: var(--tertiary-green-color);
-  border-radius: 15px;
+/*---------------- SLIDES DOUBLE PHONES ----------------------*/
+
+.block-images-slides-doublephones{
+  position: relative;
 }
+
+.number-image{
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--main-white-color);
+  font-weight: 700;
+}
+
+.rounded-box-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  background-color: #69B483;
+}
+/* ------------------------------------- */
 
 .list-number {
   font-size: 18px;
@@ -436,7 +455,7 @@ body {
 }
 
 /* FILTERS  */
-#section-filters{
+#section-filters {
   padding-top: 80px;
 }
 
@@ -449,41 +468,40 @@ body {
   line-height: normal;
 }
 
-.form-connection-admin{
+.form-connection-admin {
   margin: 22% 0;
 }
 
-.box-filters{
+.box-filters {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 
-.filters{
+.filters {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-} 
+}
 
-.filter{
+.filter {
   margin: 10px;
   text-decoration: none;
   color: var(--main-grey-color);
   font-weight: 600;
 }
 
-.active-filter{
+.active-filter {
   margin: 10px;
   text-decoration: none;
   color: var(--main-yellow-color);
   font-weight: 600;
 }
 
-
 /* ------------------------------- BLOG PAGE --------------------- */
 
-.articles-blog{
+.articles-blog {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -571,7 +589,11 @@ body {
     left: 25%;
   }
 
-  .filters{
+  .filters {
     justify-content: center;
+  }
+
+  .text-section-progressive{
+    width: 80%;
   }
 }
