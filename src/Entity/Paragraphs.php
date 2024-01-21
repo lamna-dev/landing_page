@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\ParagraphsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ParagraphsRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: ParagraphsRepository::class)]
 class Paragraphs
 {
@@ -23,6 +26,9 @@ class Paragraphs
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $featuredImage = null;
+
+    #[Vich\UploadableField(mapping: 'paragraphs', fileNameProperty: 'featuredImage')]
+    private ?File $featuredImageFile = null;
 
     #[ORM\ManyToMany(targetEntity: Posts::class, mappedBy: 'paragraphs')]
     private Collection $posts;
@@ -72,6 +78,27 @@ class Paragraphs
 
         return $this;
     }
+
+    /**
+     * Get the value of featuredImageFile
+     */
+    public function getFeaturedImageFile()
+    {
+        return $this->featuredImageFile;
+    }
+
+    /**
+     * Set the value of featuredImageFile
+     *
+     * @return  self
+     */
+    public function setFeaturedImageFile($featuredImageFile)
+    {
+        $this->featuredImageFile = $featuredImageFile;
+
+        return $this;
+    }
+
 
     /**
      * @return Collection<int, Posts>
