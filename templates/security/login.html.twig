@@ -8,7 +8,7 @@
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-4 mt-4 mb-4">
 				<form method="post" class="form-connection-admin">
-					{% if error %}
+					{% if error is defined and error != null %}
 						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 					{% endif %}
 
@@ -22,7 +22,7 @@
 
 					<h1 class="h3 mb-3 font-weight-normal">Seul les membres de l'administration peuvent se connecter à l'administration.</h1>
 					<label for="inputNickname">Pseudo</label>
-					<input type="text" value="{{ last_username }}" name="nickname" id="inputNickname" class="form-control" autocomplete="username" required autofocus>
+					<input type="text" name="nickname" id="inputNickname" class="form-control" autocomplete="username" required autofocus>
 					<label for="inputPassword">Mot de passe</label>
 					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 

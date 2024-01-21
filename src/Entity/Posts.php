@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\PostsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PostsRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: PostsRepository::class)]
 class Posts
 {
@@ -26,7 +29,10 @@ class Posts
     private ?string $content = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $featuredImage = null;
+    private ?string $featuredImage = null;  
+
+    #[Vich\UploadableField(mapping: 'posts', fileNameProperty: 'featuredImage')]
+    private ?File $featuredImageFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'posts')]
     #[ORM\JoinColumn(nullable: false)]
@@ -99,6 +105,27 @@ class Posts
 
         return $this;
     }
+
+        /**
+     * Get the value of featuredImageFile
+     */ 
+    public function getFeaturedImageFile()
+    {
+        return $this->featuredImageFile;
+    }
+
+    /**
+     * Set the value of featuredImageFile
+     *
+     * @return  self
+     */ 
+    public function setFeaturedImageFile($featuredImageFile)
+    {
+        $this->featuredImageFile = $featuredImageFile;
+
+        return $this;
+    }
+    
 
     public function getUsers(): ?Users
     {
