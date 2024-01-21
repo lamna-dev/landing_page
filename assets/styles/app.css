@@ -78,6 +78,12 @@ html {
   bottom: 10px;
   background-color: #69B483;
 }
+
+@media screen and (max-width: 980px) {
+  #section-progressive-content {
+    display: none;
+  }
+}
 /* ------------------------------------- */
 
 .list-number {
@@ -339,6 +345,7 @@ body {
   top: -230px;
   display: flex;
   justify-content: center;
+  margin-bottom: -100px;
 }
 
 .screenMobileSM {

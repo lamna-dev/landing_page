@@ -129,7 +129,6 @@ if (back !== null) {
 const progressiveContent = document.getElementById(
   "section-progressive-content"
 );
-
 const concept1 = document.getElementById("concept1");
 const concept2 = document.getElementById("concept2");
 const concept3 = document.getElementById("concept3");
@@ -151,7 +150,6 @@ document.getElementsByTagName("body")[0].onscroll = () => {
   console.log(numberImage);
 
   if (scrollY > 1100 && scrollY < 1249) {
-    console.log("TEXT 1");
     concept1.style.opacity = 1;
     concept2.style.opacity = 0.2;
     concept3.style.opacity = 0.2;
@@ -161,7 +159,6 @@ document.getElementsByTagName("body")[0].onscroll = () => {
     numberImage.textContent = "1"
   } 
   if (scrollY > 1250 && scrollY < 1329) {
-    console.log("TEXT 2");
     concept1.style.opacity = 0.2;
     concept2.style.opacity = 1;
     concept3.style.opacity = 0.2;
@@ -171,7 +168,6 @@ document.getElementsByTagName("body")[0].onscroll = () => {
     numberImage.textContent = "2"
   }
   if (scrollY >= 1330){
-    console.log("TEXT 3");
     concept1.style.opacity = 0.2;
     concept2.style.opacity = 0.2;
     concept3.style.opacity = 1;
