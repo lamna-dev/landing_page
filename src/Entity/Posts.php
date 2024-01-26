@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostsRepository;
@@ -12,8 +13,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: PostsRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Posts
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -46,6 +49,9 @@ class Posts
 
     #[ORM\Column]
     private ?\DateTimeImmutable $CreatedAt = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private $updatedAt;
 
     public function __construct()
     {
@@ -99,7 +105,7 @@ class Posts
         return $this->featuredImage;
     }
 
-    public function setFeaturedImage(string $featuredImage): static
+    public function setFeaturedImage(?string $featuredImage): static
     {
         $this->featuredImage = $featuredImage;
 
@@ -123,10 +129,11 @@ class Posts
     {
         $this->featuredImageFile = $featuredImageFile;
 
-        return $this;
+        if($featuredImageFile) {
+            $this->setUpdatedAt(new DateTime());
+        }
     }
     
-
     public function getUsers(): ?Users
     {
         return $this->users;
@@ -202,5 +209,25 @@ class Posts
     public function __toString()
     {
         return $this->title;    
+    }
+
+    /**
+     * Get the value of updatedAt
+     */ 
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @return  self
+     */ 
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }

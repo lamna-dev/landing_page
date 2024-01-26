@@ -4,11 +4,11 @@ vich_uploader:
     mappings:
        posts:
            uri_prefix: '%post_featured_images%'
-           upload_destination: '%kernel.project_dir%/public%post_featured_images%'
+           upload_destination: '%kernel.project_dir%/assets/images/articles/%post_featured_images%'
            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
        paragraphs:
            uri_prefix: '%paragraph_featured_images%'
-           upload_destination: '%kernel.project_dir%/public%paragraph_featured_images%'
+           upload_destination: '%kernel.project_dir%/assets/images/articles/%paragraph_featured_images%'
            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
 

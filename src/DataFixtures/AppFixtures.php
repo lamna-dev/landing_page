@@ -18,7 +18,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
         return array(            
             UsersFixtures::class,
             CategoriesFixtures::class,
-            PostsFixtures::class,
+            // PostsFixtures::class,
         );
     }
 }

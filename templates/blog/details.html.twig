@@ -7,7 +7,7 @@
 	<header class="header-blog-details">
 		<div class="container-header-blog-details">
 			<div class="block-image-header-blog-details">
-				<img src="{{ asset(post.featuredImage) }}" alt="Photo de l'article 1"/>
+				<img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article 1"/>
 			</div>
 			<div class="content-header-blog-details">
 				<div class="link-header-blog-details">
@@ -40,13 +40,13 @@
 			<div id="content-blog-details" class="screenDesktopForSlidesDetails">
 				{% for post in posts %}
 					<div class="article">
-						<div class="card-image"><img src="{{asset("/#{post.getFeaturedImage()}")}}" alt="Photo de l'article 1"/></div>
+						<div class="card-image"><img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article" width="300px"/></div>
 						<div class="content-article">
 							<div
 								class="box-label-and-date">
 								{# Relation class many to many #}
 								{% for category in post.categories %}
-									<span class="concept">{{category.name}}</span>
+									<span class="concept">{{category.name}}</span>	
 								{% endfor %}
 								<span class="date-card-article">{{post.createdAt |format_datetime('short', 'none', locale='fr')}}</span>
 							</div>
