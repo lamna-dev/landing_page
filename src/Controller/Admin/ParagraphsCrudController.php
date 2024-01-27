@@ -3,12 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Paragraphs;;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ParagraphsCrudController extends AbstractCrudController
 {
@@ -21,10 +23,12 @@ class ParagraphsCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            TextEditorField::new('content'),
+            TextareaField::new('content'),
+            TextField::new('featuredImageFile')->setFormType(VichImageType::class)->onlyOnIndex(),
+            ImageField::new('featuredImage', 'Image')->setUploadDir('assets/images/articles/post_featured_images')->setBasePath('/images/articles/post_featured_images'),
             AssociationField::new('posts'),
-            TextField::new('featuredImageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            ImageField::new('featuredImage')->setBasePath('/uploads/featured_images')->onlyOnIndex(),
+            // DateField::new('created_at'),
+            // DateField::new('updated_at'),
         ];
     }
 }
