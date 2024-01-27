@@ -35,7 +35,7 @@
 					{% if posts %}
 						{% for post in posts %}
 							<div class="article">
-								<div class="card-image"><img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article" width="300px"/></div>
+								<div class="card-image"><img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="{{post.title}}" width="300px"/></div>
 								<div class="content-article">
 									<div
 										class="box-label-and-date">

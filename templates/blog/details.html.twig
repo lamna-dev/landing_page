@@ -7,7 +7,7 @@
 	<header class="header-blog-details">
 		<div class="container-header-blog-details">
 			<div class="block-image-header-blog-details">
-				<img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article 1"/>
+				<img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="{{post.title}}"/>
 			</div>
 			<div class="content-header-blog-details">
 				<div class="link-header-blog-details">
@@ -36,7 +36,7 @@
 					<div>{{paragraph.content}}</div>
 					<div class="container-image-paragraphs">
 						<figure>
-							<img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article"/>
+							<img src="{{asset("images/articles/paragraph_featured_images/#{post.getFeaturedImage()}")}}" alt="{{paragraph.title}}"/>
 							{% if paragraph.caption %}
 								<figcaption>{{paragraph.caption}}</figcaption>
 							{% endif %}
@@ -58,7 +58,7 @@
 				{% if posts %}
 					{% for post in posts %}
 						<div class="article">
-							<div class="card-image"><img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article" width="300px"/></div>
+							<div class="card-image"><img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="{{post.title}}" width="300px"/></div>
 							<div class="content-article">
 								<div
 									class="box-label-and-date">
