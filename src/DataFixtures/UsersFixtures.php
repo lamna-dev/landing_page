@@ -34,6 +34,8 @@ class UsersFixtures extends Fixture
         $user->setRoles(['ROLE_ADMIN']);
         $user->setEmail('test@gmail.com');
         $user->setIsVerified(true);
+        $user->setCreatedAt(new \DateTimeImmutable());
+        $user->setUpdatedAt(new \DateTime());
         $this->addReference(self::ADMIN_USER_REFERENCE, $user);
         return $user;
     }

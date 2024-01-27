@@ -10,12 +10,15 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Entity\Traits\TimeStampable;
+
 
 #[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: PostsRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 class Posts
 {
+    use TimeStampable;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -46,12 +49,6 @@ class Posts
 
     #[ORM\ManyToMany(targetEntity: Paragraphs::class, inversedBy: 'posts')]
     private Collection $paragraphs;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $CreatedAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private $updatedAt;
 
     public function __construct()
     {
@@ -112,26 +109,14 @@ class Posts
         return $this;
     }
 
-        /**
-     * Get the value of featuredImageFile
-     */ 
     public function getFeaturedImageFile()
     {
         return $this->featuredImageFile;
     }
 
-    /**
-     * Set the value of featuredImageFile
-     *
-     * @return  self
-     */ 
     public function setFeaturedImageFile($featuredImageFile)
     {
         $this->featuredImageFile = $featuredImageFile;
-
-        if($featuredImageFile) {
-            $this->setUpdatedAt(new DateTime());
-        }
     }
     
     public function getUsers(): ?Users
@@ -194,40 +179,9 @@ class Posts
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->CreatedAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $CreatedAt): static
-    {
-        $this->CreatedAt = $CreatedAt;
-
-        return $this;
-    }
-
     public function __toString()
     {
         return $this->title;    
     }
 
-    /**
-     * Get the value of updatedAt
-     */ 
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set the value of updatedAt
-     *
-     * @return  self
-     */ 
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
 }

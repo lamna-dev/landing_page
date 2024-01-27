@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use App\Repository\AddressesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Traits\TimeStampable;
 
 #[ORM\Entity(repositoryClass: AddressesRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Addresses
 {
+    use TimeStampable;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

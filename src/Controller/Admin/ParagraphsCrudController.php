@@ -27,8 +27,8 @@ class ParagraphsCrudController extends AbstractCrudController
             TextField::new('featuredImageFile')->setFormType(VichImageType::class)->onlyOnIndex(),
             ImageField::new('featuredImage', 'Image')->setUploadDir('assets/images/articles/post_featured_images')->setBasePath('/images/articles/post_featured_images'),
             AssociationField::new('posts'),
-            // DateField::new('created_at'),
-            // DateField::new('updated_at'),
+            DateField::new('created_at'),
+            DateField::new('updated_at'),
         ];
     }
 }
