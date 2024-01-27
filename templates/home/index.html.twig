@@ -122,14 +122,16 @@
 														</div>
 													</div>
 												</div>
-												<div class="btns-doublephones-mobile">
-													<div class="btn-left" id="slideBack-concepts-mobile">
-														<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
+												{% if posts|length > 1 %}
+													<div class="btns-doublephones-mobile">
+														<div class="btn-left" id="slideBack-concepts-mobile">
+															<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
+														</div>
+														<div class="btn-right" id="slide-concepts-mobile">
+															<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
+														</div>
 													</div>
-													<div class="btn-right" id="slide-concepts-mobile">
-														<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
-													</div>
-												</div>
+												{% endif %}
 											</div>
 										</section>
 										{# STATS #}
@@ -213,7 +215,8 @@
 													<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
 												</div>
 											</div>
-											<div class="btn-lamna-full mt-3 button-hover-transform">
+											{% if posts|length > 1 %}
+												<div class="btn-lamna-full mt-3 button-hover-transform">
 												<a class="nav-link mx-2" href="{{path("blog_all_articles", {'filter' : 'Tous'})}}">
 													<span class="mr-3 text-white">Voir tous les articles</span>
 													<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FFF" class="bi bi-arrow-right" viewbox="0 0 16 16">
@@ -221,6 +224,7 @@
 													</svg>
 												</a>
 											</div>
+											{% endif %}
 										</div>
 									</section>
 									{# NEWSLETTER #}

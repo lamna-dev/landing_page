@@ -33,6 +33,9 @@ class Paragraphs
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $featuredImage = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $caption = null;
+
     #[Vich\UploadableField(mapping: 'paragraphs', fileNameProperty: 'featuredImage')]
     private ?File $featuredImageFile = null;
 
@@ -100,6 +103,18 @@ class Paragraphs
     public function setPost($post): self
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getCaption()
+    {
+        return $this->caption;
+    }
+
+    public function setCaption($caption)
+    {
+        $this->caption = $caption;
 
         return $this;
     }

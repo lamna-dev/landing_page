@@ -22,15 +22,22 @@
 					<span class="date-card-article-blog-details">{{post.createdAt |format_datetime('short', 'none', locale='fr')}}</span>
 				</div>
 				<div class="title-header-blog-details">
-					<h1>{{post.title}}</h1>
+					<h1>{{post.title | raw}}</h1>
 				</div>
-				<div class="description-blog-details">{{post.content}}
-				</div>
+				<div class="description-blog-details">{{post.content | raw }}</div>
 			</div>
 		</div>
 	</header>
 	<section>
-		PARAGRAPH
+		<div>
+			<h3 class="title-paragraphs">test</h3>
+			<div>Content</div>
+			<div>
+					Image
+				<p>avec une légende</p>
+			</div>
+
+		</div>
 	</section>
 	<section class="section-blog-details">
 		<p class="concept">Articles liés</p>
@@ -69,7 +76,8 @@
 
 			</div>
 		</div>
-		<div class="actions-slider-blog-details screenMobileSM">
+		{% if posts|length > 1 %}
+				<div class="actions-slider-blog-details screenMobileSM">
 			<div class="btn-left-blog-details" id="slideBack-details">
 				<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
 			</div>
@@ -77,5 +85,6 @@
 				<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
 			</div>
 		</div>
+		{% endif %}
 	</div>
 </section>{% endblock %}
