@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog
-{% endblock %}
+{% block title %}{{ post.slug|slug('separator', 'locale') }}{% endblock %}
 
 {% block body %}
 	<header class="header-blog-details">
