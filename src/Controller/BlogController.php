@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categories;
+use App\Entity\Paragraphs;
 use App\Entity\Posts;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,8 +57,12 @@ class BlogController extends AbstractController
 
         $posts = $postRepository->findAllExceptThis($post);
 
+        $paragraphRepository = $entityManagerInterface->getRepository(Paragraphs::class);
+        $paragraphs = $paragraphRepository->findAllParagraphsOfPost($post);
+
         return $this->render('blog/details.html.twig', [
             'post' => $post,
+            'paragraphs' => $paragraphs,
             'posts' => array_slice($posts, 0, 3)
         ]);
     }

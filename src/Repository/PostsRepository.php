@@ -26,7 +26,8 @@ class PostsRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->innerJoin('p.categories', 'c')
-            ->andWhere('c.id = :categoryId')->setParameter('categoryId',$category->getId())
+            ->andWhere('c.id = :categoryId')
+            ->setParameter('categoryId',$category->getId())
             ->getQuery()
             ->getResult()
         ;

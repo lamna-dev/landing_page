@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Paragraphs;
+use App\Entity\Posts;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +20,17 @@ class ParagraphsRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Paragraphs::class);
+    }
+
+    public function findAllParagraphsOfPost(Posts $post) 
+    {
+        return $this->createQueryBuilder('pa')
+            ->select('pa')
+            ->andWhere('pa.post = :postId')
+            ->setParameter('postId', $post->getId())
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
 //    /**
