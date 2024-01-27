@@ -44,15 +44,14 @@ class Posts
     #[ORM\JoinColumn(nullable: false)]
     private ?Users $users = null;
 
-    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'posts')]
-    private Collection $categories;
+    #[ORM\ManyToOne(targetEntity: Categories::class, inversedBy: 'posts')]
+    private Categories $categories;
 
-    #[ORM\ManyToMany(targetEntity: Paragraphs::class, inversedBy: 'posts')]
+    #[ORM\OneToMany(targetEntity: Posts::class, mappedBy: 'paragraphs')]
     private Collection $paragraphs;
 
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
         $this->paragraphs = new ArrayCollection();
     }
 
@@ -131,39 +130,29 @@ class Posts
         return $this;
     }
 
-    /**
-     * @return Collection<int, Categories>
-     */
-    public function getCategories(): Collection
+    public function __toString()
+    {
+        return $this->title;    
+    }
+
+    public function getCategories()
     {
         return $this->categories;
     }
 
-    public function addCategory(Categories $category): static
+    public function setCategories($categories): self
     {
-        if (!$this->categories->contains($category)) {
-            $this->categories->add($category);
-        }
+        $this->categories = $categories;
 
         return $this;
     }
 
-    public function removeCategory(Categories $category): static
-    {
-        $this->categories->removeElement($category);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Paragraphs>
-     */
     public function getParagraphs(): Collection
     {
         return $this->paragraphs;
-    }
+    }  
 
-    public function addParagraph(Paragraphs $paragraph): static
+    public function addPost(Paragraphs $paragraph): static
     {
         if (!$this->paragraphs->contains($paragraph)) {
             $this->paragraphs->add($paragraph);
@@ -172,16 +161,11 @@ class Posts
         return $this;
     }
 
-    public function removeParagraph(Paragraphs $paragraph): static
+    public function removePost(Paragraphs $paragraph): static
     {
         $this->paragraphs->removeElement($paragraph);
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->title;    
     }
 
 }

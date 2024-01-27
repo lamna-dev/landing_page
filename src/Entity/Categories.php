@@ -22,7 +22,7 @@ class Categories
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Posts::class, mappedBy: 'categories')]
+    #[ORM\OneToMany(targetEntity: Posts::class, mappedBy: 'categories')]
     private Collection $posts;
 
     public function __construct()
@@ -47,19 +47,15 @@ class Categories
         return $this;
     }
 
-    /**
-     * @return Collection<int, Posts>
-     */
     public function getPosts(): Collection
     {
         return $this->posts;
-    }
+    }   
 
     public function addPost(Posts $post): static
     {
         if (!$this->posts->contains($post)) {
             $this->posts->add($post);
-            $post->addCategory($this);
         }
 
         return $this;
@@ -67,9 +63,7 @@ class Categories
 
     public function removePost(Posts $post): static
     {
-        if ($this->posts->removeElement($post)) {
-            $post->removeCategory($this);
-        }
+        $this->posts->removeElement($post);
 
         return $this;
     }

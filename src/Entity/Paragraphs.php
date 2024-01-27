@@ -36,13 +36,8 @@ class Paragraphs
     #[Vich\UploadableField(mapping: 'paragraphs', fileNameProperty: 'featuredImage')]
     private ?File $featuredImageFile = null;
 
-    #[ORM\ManyToMany(targetEntity: Posts::class, mappedBy: 'paragraphs')]
-    private Collection $posts;
-
-    public function __construct()
-    {
-        $this->posts = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(targetEntity: Posts::class, inversedBy: 'paragraphs')]
+    private Posts $post;
 
     public function getId(): ?int
     {
@@ -85,19 +80,11 @@ class Paragraphs
         return $this;
     }
 
-    /**
-     * Get the value of featuredImageFile
-     */
     public function getFeaturedImageFile()
     {
         return $this->featuredImageFile;
     }
 
-    /**
-     * Set the value of featuredImageFile
-     *
-     * @return  self
-     */
     public function setFeaturedImageFile($featuredImageFile)
     {
         $this->featuredImageFile = $featuredImageFile;
@@ -105,30 +92,14 @@ class Paragraphs
         return $this;
     }
 
-
-    /**
-     * @return Collection<int, Posts>
-     */
-    public function getPosts(): Collection
+    public function getPost()
     {
-        return $this->posts;
+        return $this->post;
     }
 
-    public function addPost(Posts $post): static
+    public function setPost($post): self
     {
-        if (!$this->posts->contains($post)) {
-            $this->posts->add($post);
-            $post->addParagraph($this);
-        }
-
-        return $this;
-    }
-
-    public function removePost(Posts $post): static
-    {
-        if ($this->posts->removeElement($post)) {
-            $post->removeParagraph($this);
-        }
+        $this->post = $post;
 
         return $this;
     }
