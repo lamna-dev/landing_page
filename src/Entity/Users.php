@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use App\Entity\Traits\TimeStampable;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-#[ORM\HasLifecycleCallbacks]
+#[ORM\HasLifecycleCallbacks]    
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     use TimeStampable;
@@ -89,7 +89,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): static
     {
         $this->roles = $roles;
-
         return $this;
     }
 

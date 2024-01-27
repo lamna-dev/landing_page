@@ -6,33 +6,20 @@ use App\Entity\Users;
 use Symfony\Bundle\SecurityBundle\Security;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
-use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Form\{FormBuilderInterface, FormEvent, FormEvents};
 
 class UsersCrudController extends AbstractCrudController
 {
-    private $userPasswordHasherInterface;
-
-    private $security;
-
-    public function __construct(UserPasswordHasherInterface $userPasswordHasherInterface, Security $security)
-    {
-        $this->userPasswordHasherInterface = $userPasswordHasherInterface;
-        $this->security = $security;
-    }
-
     public static function getEntityFqcn(): string
     {
         return Users::class;
@@ -63,6 +50,9 @@ class UsersCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('nickname'),
             TextField::new('email'),
+            TextField::new('password')->hideOnIndex()
+            ->setFormType(PasswordType::class),
+            ArrayField::new('roles'),
             BooleanField::new('is_verified'),
             DateField::new('created_at')->renderAsChoice(),
             DateField::new('updated_at')->renderAsChoice(),
