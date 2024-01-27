@@ -28,16 +28,26 @@
 			</div>
 		</div>
 	</header>
-	<section>
-		<div>
-			<h3 class="title-paragraphs">test</h3>
-			<div>Content</div>
-			<div>
-					Image
-				<p>avec une légende</p>
-			</div>
+	<section class="section-paragraphs">
+		{% if paragraphs|length > 0 %}
+			{% for paragraph in paragraphs %}
+				<div class="container-paragraphs">
+					<h3 class="title-paragraphs">{{paragraph.title}}</h3>
+					<div>{{paragraph.content}}</div>
+					<div class="container-image-paragraphs">
+						<figure>
+							<img src="{{asset("images/articles/post_featured_images/#{post.getFeaturedImage()}")}}" alt="Photo de l'article"/>
+							{% if paragraph.caption %}
+								<figcaption>{{paragraph.caption}}</figcaption>
+							{% endif %}
+						</figure>
+					</div>
+				</div>	
+			{% endfor %}
+		{% else %}
+			{% include "partials/notParagraph.html.twig" %}
+		{% endif %}
 
-		</div>
 	</section>
 	<section class="section-blog-details">
 		<p class="concept">Articles liés</p>
@@ -77,14 +87,14 @@
 			</div>
 		</div>
 		{% if posts|length > 1 %}
-				<div class="actions-slider-blog-details screenMobileSM">
-			<div class="btn-left-blog-details" id="slideBack-details">
-				<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
+			<div class="actions-slider-blog-details screenMobileSM">
+				<div class="btn-left-blog-details" id="slideBack-details">
+					<img src="{{asset('images/icons/arrow-left.png')}}" alt="Icon qui permet de se déplacer vers la gauche"/>
+				</div>
+				<div class="btn-right-blog-details" id="slide-details">
+					<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
+				</div>
 			</div>
-			<div class="btn-right-blog-details" id="slide-details">
-				<img src="{{asset('images/icons/arrow-right.png')}}" alt="Icon qui permet de se déplacer vers la droite"/>
-			</div>
-		</div>
 		{% endif %}
 	</div>
 </section>{% endblock %}

@@ -28,10 +28,10 @@ class PostsCrudController extends AbstractCrudController
             TextareaField::new('content'),
             TextField::new('featuredImageFile')->setFormType(VichImageType::class)->onlyOnIndex(),
             ImageField::new('featuredImage', 'Image')->setUploadDir('assets/images/articles/post_featured_images')->setBasePath('/images/articles/post_featured_images'),
-            DateField::new('created_at'),
-            DateField::new('updated_at'),
             AssociationField::new('categories'),
-            AssociationField::new('users')
+            AssociationField::new('users'),
+            DateField::new('created_at')->renderAsChoice(),
+            DateField::new('updated_at')->renderAsChoice(),
         ];
     }
 }

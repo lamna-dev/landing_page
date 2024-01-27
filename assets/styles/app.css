@@ -605,16 +605,14 @@ body {
 
 .container-header-blog-details {
   width: 80%;
+  height: max-content;
   display: flex;
   justify-content: space-around;
 }
 
-.block-image-header-blog-details {
-  width: 60%;
-}
-
 .block-image-header-blog-details img {
   width: 80%;
+  border-radius: 15px;
 }
 .concept-blog-details {
   max-width: max-content;
@@ -624,6 +622,14 @@ body {
   border: 1px solid var(--main-yellow-color);
   border-radius: 50px;
   font-size: 16px;
+}
+
+.text-section-blog-details{
+  margin-bottom: 20px;
+}
+
+.title-blog-details {
+  margin: 16px 0;
 }
 
 .date-card-article-blog-details {
@@ -658,6 +664,63 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+/* ------------------------------------PARAGRAPHS-------------------------- */
+.section-paragraphs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-paragraphs{
+  width: 70%;
+  height: max-content;
+  padding: 30px 15px;
+}
+.title-paragraph {
+  color: var(--main-green-color);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.content-paragraph {
+  color: var(--main-black-color);
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.container-image-paragraphs{
+  height: 350px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+figure{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+figure img{
+  max-height: 350px;
+  border-radius: 15px;
+}
+
+figcaption{
+  color: var(--main-black-color);
+}
+
+/* ______________________________ ADMINISTRATOR____________________________ */
+
+.link-administrator a {
+  text-decoration: none;
+  color: var(--main-white-color);
+}
+
+
 
 /* ------------------------- MOBILE --------------------------- */
 
@@ -760,29 +823,30 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 0;
   }
 
   .container-header-blog-details {
     width: 80%;
     display: flex;
     flex-direction: column;
+    padding: 20px;
   }
-
-  .block-image-header-blog-details {
-    width: 100%;
-  }
-
-  .block-image-header-blog-details img {
-    width: 100%;
-  }
-
   .content-header-blog-details {
     width: 100%;
+    padding: 10px;
   }
 
   .title-blog-details {
     width: 85%;
+    margin: 16px 0;
+  }
+
+  .block-image-header-blog-details {
+    padding: 20px 0;
+    width: 100%; 
+    max-height: 40%;
+    display: flex;
+    justify-content: center;
   }
 
   /* SLIDES CARDS BLOGS */
@@ -793,7 +857,7 @@ body {
   #container-blog-details {
     max-height: max-content;
     overflow: scroll;
-    width: 450px;
+    width: 350px;
   }
   #content-blog-details {
     width: 450px;
@@ -842,25 +906,8 @@ body {
     top: 25%;
     left: 25%;
   }
-}
 
-/* ------------------------------------PARAGRAPHS-------------------------- */
-
-.title-paragraph {
-  color: var(--main-green-color);
-  font-size: 22px;
-  font-weight: 500;
-}
-
-.content-paragraph {
-  color: var(--main-black-color);
-  font-size: 22px;
-  font-weight: 500;
-}
-
-/* ______________________________ ADMINISTRATOR____________________________ */
-
-.link-administrator a {
-  text-decoration: none;
-  color: var(--main-white-color);
+  .description-blog-details{
+    font-size: 14px;
+  }
 }
