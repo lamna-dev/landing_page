@@ -29,8 +29,8 @@ class UsersFixtures extends Fixture
         // Create user admin
         $user = new Users();
         $user->setNickname("David");
-        $password = $this->hasher->hashPassword($user, 'passwordSecret');
-        $user->setPassword($password);
+        // $password = $this->hasher->hashPassword($user, 'passwordSecret');
+        $user->setPassword('passwordSecret');   
         $user->setRoles(['ROLE_ADMIN']);
         $user->setEmail('test@gmail.com');
         $user->setIsVerified(true);
